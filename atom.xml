@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-13T07:42:04.224Z</updated>
+    <updated>2019-05-19T08:11:38.556Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -10,6 +10,18 @@
     <logo>https://why.yuyeye.cc/images/avatar.png</logo>
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2019, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[今天我们一起去吃小龙虾呀 ]]></title>
+        <id>https://why.yuyeye.cc/post/jin-tian-wo-men-yi-qi-qu-chi-xiao-long-xia-ya</id>
+        <link href="https://why.yuyeye.cc/post/jin-tian-wo-men-yi-qi-qu-chi-xiao-long-xia-ya">
+        </link>
+        <updated>2019-05-19T07:54:02.000Z</updated>
+        <content type="html"><![CDATA[<p>今天很开心 因为该电脑的小主人在湖北 今天他有陪我学习呀
+我爱你 我爱你wo ai ni 我爱你 我爱你
+There exists a girl  having passion for this computer's owner.
+woainiwoaini我爱你我爱你</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenWRT自定义按钮的功能]]></title>
         <id>https://why.yuyeye.cc/post/openwrt-customize-function-on-wps-button</id>
@@ -75,6 +87,52 @@ shell_1为点亮LED，shell_2为关闭LED
 4.一键恢复WiFi密码<br>
 5.甚至可以控制拍照(需要外接摄像头)</p>
 <p>多个按钮，路由器玩法就太多了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[4 Steps to clone access card by phone]]></title>
+        <id>https://why.yuyeye.cc/post/3-steps-to-clone-access-card</id>
+        <link href="https://why.yuyeye.cc/post/3-steps-to-clone-access-card">
+        </link>
+        <updated>2019-01-01T01:58:07.000Z</updated>
+        <summary type="html"><![CDATA[<p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
+Follow the steps bellow to clone an access card.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
+Follow the steps bellow to clone an access card.</p>
+<!-- more -->
+<ol>
+<li>Prepare the UID changeable card.<br>
+The first generation of UID changeable card, which called Chinese magic card, can be writed with external device, (i.e., PN53X, ACR122U and PM3).<br>
+The second generaltion of UID Change is called <strong>cuid</strong> card which can be easily writen on Android phone.
+<img src="https://why.yuyeye.cc/post-images/1558252362969.png" alt=""></li>
+<li>Install <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> or <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">Mifare Classic Tool</a> on the phone.<br>
+<strong>MCT</strong> is a powerfull app to read and write data to mifare 1k card.<br>
+With <strong>MTools</strong>, you can even read and write data that under some rules, e.g., the valid money data.</li>
+<li>Read default data of Sector 0 of original card.<br>
+Usually, the default keys for card's sector 0 is <code>FF FF FF FF FF</code></li>
+</ol>
+<ul>
+<li>By MIFARE Classic Tool:
+<ul>
+<li>READ TAG</li>
+<li>Choose <code>std.keys</code></li>
+<li>Click <code>START MAPPING AND READ TAG</code>
+<img src="https://why.yuyeye.cc/post-images/1558252072596.png" alt=""></li>
+</ul>
+</li>
+<li>By MTools:
+<ul>
+<li>Add Card</li>
+<li>Add Sector 0, keyA and keyB</li>
+<li>Click Read Sector Button
+<img src="https://why.yuyeye.cc/post-images/1558252038269.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>Write data of Sector 0 to target UID changeable card.</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
