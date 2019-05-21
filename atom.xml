@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-20T07:48:33.260Z</updated>
+    <updated>2019-05-21T08:06:05.645Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -91,8 +91,8 @@ shell_1为点亮LED，shell_2为关闭LED
     </entry>
     <entry>
         <title type="html"><![CDATA[4 Steps to clone access card by phone]]></title>
-        <id>https://why.yuyeye.cc/post/3-steps-to-clone-access-card</id>
-        <link href="https://why.yuyeye.cc/post/3-steps-to-clone-access-card">
+        <id>https://why.yuyeye.cc/post/4-steps-to-clone-access-card</id>
+        <link href="https://why.yuyeye.cc/post/4-steps-to-clone-access-card">
         </link>
         <updated>2019-01-01T01:58:07.000Z</updated>
         <summary type="html"><![CDATA[<p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
