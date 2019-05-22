@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>4 Steps to clone access card by phone | W!K!</title>
+<title>Python 数据处理之字段去重 | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1558529300396">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,75 +87,70 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              4 Steps to clone access card by phone
+              Python 数据处理之字段去重
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-01-01 ·
+                · 2019-05-22 ·
               </time>
               
-                <a href="https://why.yuyeye.cc/tag/T1-bFZkEL" class="post-tag">
-                  # PN532
+                <a href="https://why.yuyeye.cc/tag/shell" class="post-tag">
+                  # shell
                 </a>
               
-                <a href="https://why.yuyeye.cc/tag/kRGTk0AaH" class="post-tag">
-                  # ACR122U
-                </a>
-              
-                <a href="https://why.yuyeye.cc/tag/android" class="post-tag">
-                  # Android
-                </a>
-              
-                <a href="https://why.yuyeye.cc/tag/NFC" class="post-tag">
-                  # NFC
-                </a>
-              
-                <a href="https://why.yuyeye.cc/tag/RFID" class="post-tag">
-                  # RFID
-                </a>
-              
-                <a href="https://why.yuyeye.cc/tag/Hacker" class="post-tag">
-                  # Hacker
+                <a href="https://why.yuyeye.cc/tag/Python" class="post-tag">
+                  # Python
                 </a>
               
             </div>
             
             <div class="post-content">
-              <p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
-Follow the steps bellow to clone an access card.</p>
+              <p>在之前遇到的数据中，由于同一部件的可替换不同产品，造成了同一行出现了2次及以上同样的字段和属性值，而只需要其中的一个以及对应值即可，此文记录下处理的过程。
+<img src="https://why.yuyeye.cc/post-images/1558528609939.png" alt=""></p>
 <!-- more -->
+<p>一番分析后，整理了如下的思路来清理重复字段：</p>
 <ol>
-<li>Prepare the UID changeable card.<br>
-The first generation of UID changeable card, which called Chinese magic card, can be writed with external device, (i.e., PN53X, ACR122U and PM3).<br>
-The second generaltion of UID Change is called <strong>cuid</strong> card which can be easily writen on Android phone.
-<img src="https://why.yuyeye.cc/post-images/1558252362969.png" alt=""></li>
-<li>Install <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> or <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">Mifare Classic Tool</a> on the phone.<br>
-<strong>MCT</strong> is a powerfull app to read and write data to mifare 1k card.<br>
-With <strong>MTools</strong>, you can even read and write data that under some rules, e.g., the valid money data.</li>
-<li>Read default data of Sector 0 of original card.<br>
-Usually, the default keys for card's sector 0 is <code>FF FF FF FF FF</code></li>
+<li>循环读取每一行</li>
+<li>用<code>，</code>分散成数组</li>
+<li>循环判断索引大于5的元素</li>
+<li><code>para[n] == para[n-2]</code>时表示当前字段重复</li>
+<li>同时跳过重复字段的值</li>
 </ol>
-<ul>
-<li>By MIFARE Classic Tool:
-<ul>
-<li>READ TAG</li>
-<li>Choose <code>std.keys</code></li>
-<li>Click <code>START MAPPING AND READ TAG</code>
-<img src="https://why.yuyeye.cc/post-images/1558252072596.png" alt=""></li>
-</ul>
-</li>
-<li>By MTools:
-<ul>
-<li>Add Card</li>
-<li>Add Sector 0, keyA and keyB</li>
-<li>Click Read Sector Button
-<img src="https://why.yuyeye.cc/post-images/1558252038269.png" alt=""></li>
-</ul>
-</li>
-</ul>
-<ol start="4">
-<li>Write data of Sector 0 to target UID changeable card.</li>
-</ol>
+<p>Python 代码实现</p>
+<pre><code>import getopt, sys
+
+def go(file_name):
+	f = open(file_name, 'r')
+	result = list()
+	for line in open(file_name):
+		line = f.readline()
+		para = line.split(&quot;,&quot;)
+		new_line = &quot;&quot;
+		dump_line = 0
+		for index in range(len(para)):
+			if(index &lt;= 5):
+				new_line = new_line + para[index] +&quot;,&quot;
+				continue
+			else:
+				if(para[index] == para[index-2]):
+					dump_line = index
+					continue
+				elif(dump_line == index -1):
+					continue
+				else:
+					new_line = new_line + para[index] +&quot;,&quot;
+		print new_line
+		result.append(new_line)
+	f.close()                
+	open(file_name+'-fix.csv', 'w').write('%s' % '\n'.join(result))
+
+if __name__ == '__main__':
+	file_name = sys.argv[1]
+	go(file_name)
+</code></pre>
+<p>用法 <code>python fix.py 文件名</code>
+<img src="https://why.yuyeye.cc/post-images/1558529102899.png" alt="">
+看着文件大小骤减40%，让人如释重负的感觉:)</p>
 
             </div>
           </article>
@@ -164,9 +159,9 @@ Usually, the default keys for card's sector 0 is <code>FF FF FF FF FF</code></li
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://why.yuyeye.cc/post/how-to-use-nfc-as-a-mifare-card-reader-charge">
+            <a href="https://why.yuyeye.cc/post/jin-tian-wo-men-yi-qi-qu-chi-xiao-long-xia-ya">
               <h3 class="post-title">
-                How to use NFC as a mifare card reader - Charge
+                今天我们一起去吃小龙虾呀 
               </h3>
             </a>
           </div>

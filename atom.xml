@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-21T09:43:15.274Z</updated>
+    <updated>2019-05-22T12:48:27.252Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -10,6 +10,75 @@
     <logo>https://why.yuyeye.cc/images/avatar.png</logo>
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2019, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[Python 数据处理之字段去重]]></title>
+        <id>https://why.yuyeye.cc/post/python-data-processing-deduplication</id>
+        <link href="https://why.yuyeye.cc/post/python-data-processing-deduplication">
+        </link>
+        <updated>2019-05-22T12:21:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>在之前遇到的数据中，由于同一部件的可替换不同产品，造成了同一行出现了2次及以上同样的字段和属性值，而只需要其中的一个以及对应值即可，此文记录下处理的过程。
+<img src="https://why.yuyeye.cc/post-images/1558528609939.png" alt=""></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在之前遇到的数据中，由于同一部件的可替换不同产品，造成了同一行出现了2次及以上同样的字段和属性值，而只需要其中的一个以及对应值即可，此文记录下处理的过程。
+<img src="https://why.yuyeye.cc/post-images/1558528609939.png" alt=""></p>
+<!-- more -->
+<p>一番分析后，整理了如下的思路来清理重复字段：</p>
+<ol>
+<li>循环读取每一行</li>
+<li>用<code>，</code>分散成数组</li>
+<li>循环判断索引大于5的元素</li>
+<li><code>para[n] == para[n-2]</code>时表示当前字段重复</li>
+<li>同时跳过重复字段的值</li>
+</ol>
+<p>Python 代码实现</p>
+<pre><code>import getopt, sys
+
+def go(file_name):
+	f = open(file_name, 'r')
+	result = list()
+	for line in open(file_name):
+		line = f.readline()
+		para = line.split(&quot;,&quot;)
+		new_line = &quot;&quot;
+		dump_line = 0
+		for index in range(len(para)):
+			if(index &lt;= 5):
+				new_line = new_line + para[index] +&quot;,&quot;
+				continue
+			else:
+				if(para[index] == para[index-2]):
+					dump_line = index
+					continue
+				elif(dump_line == index -1):
+					continue
+				else:
+					new_line = new_line + para[index] +&quot;,&quot;
+		print new_line
+		result.append(new_line)
+	f.close()                
+	open(file_name+'-fix.csv', 'w').write('%s' % '\n'.join(result))
+
+if __name__ == '__main__':
+	file_name = sys.argv[1]
+	go(file_name)
+</code></pre>
+<p>用法 <code>python fix.py 文件名</code>
+<img src="https://why.yuyeye.cc/post-images/1558529102899.png" alt="">
+看着文件大小骤减40%，让人如释重负的感觉:)</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[今天我们一起去吃小龙虾呀 ]]></title>
+        <id>https://why.yuyeye.cc/post/jin-tian-wo-men-yi-qi-qu-chi-xiao-long-xia-ya</id>
+        <link href="https://why.yuyeye.cc/post/jin-tian-wo-men-yi-qi-qu-chi-xiao-long-xia-ya">
+        </link>
+        <updated>2019-05-19T07:54:02.000Z</updated>
+        <content type="html"><![CDATA[<p>今天很开心 因为该电脑的小主人在湖北 今天他有陪我学习呀
+我爱你 我爱你wo ai ni 我爱你 我爱你
+There exists a girl  having passion for this computer's owner.
+woainiwoaini我爱你我爱你</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenWRT自定义按钮的功能]]></title>
         <id>https://why.yuyeye.cc/post/openwrt-customize-function-on-wps-button</id>
@@ -230,15 +299,18 @@ I'll show you how to charge with this regular rule in next post.</p>
         </link>
         <updated>2017-04-30T06:06:13.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
-<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的</p>
+<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的
+<img src="https://i.loli.net/2019/04/16/5cb52e810d92f.jpg" alt="Temperature.jpg">
+这还是<s>春天</s>乱穿衣服的季节，到了夏天会不会炸机真不好说
+于是乎，捣鼓了一番，加装了散热风扇，利用了板载的一个USB口，一个GPIO口。</p>
 ]]></summary>
         <content type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
-<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的</p>
-<!-- more -->
-<p><img src="https://i.loli.net/2019/04/16/5cb52e810d92f.jpg" alt="Temperature.jpg">
+<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的
+<img src="https://i.loli.net/2019/04/16/5cb52e810d92f.jpg" alt="Temperature.jpg">
 这还是<s>春天</s>乱穿衣服的季节，到了夏天会不会炸机真不好说
-于是乎，捣鼓了一番，加装了散热风扇，利用了板载的一个USB口，一个GPIO口
-先看看最后成品图
+于是乎，捣鼓了一番，加装了散热风扇，利用了板载的一个USB口，一个GPIO口。</p>
+<!-- more -->
+<p>先看看最后成品图
 <img src="https://ooo.0o0.ooo/2017/04/27/5901f9e410a3c.jpg" alt="Top_view.jpg"></p>
 <hr>
 <h3 id="思路">思路</h3>
