@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-28T06:27:10.043Z</updated>
+    <updated>2019-05-28T06:31:55.160Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -44,52 +44,52 @@ Supported CRC8 algorithm in MTools .</p>
 <tbody>
 <tr>
 <td>CRC-8</td>
-<td>crc8(<strong>b0,b1,b5,b8</strong>)</td>
-<td>CRC8 of HEX String of <code>b0</code> <code>b1</code> <code>b5</code> <code>b8</code></td>
+<td>crc8(<strong>0,1,5,8</strong>)</td>
+<td>CRC8 of HEX String of <code>b0</code> <code>b1</code> <code>b5</code> <code>8</code></td>
 </tr>
 <tr>
 <td>CRC-8/CDMA2000</td>
-<td>crc8cdma2000(<strong>b0:b14</strong>)</td>
+<td>crc8cdma2000(<strong>0:14</strong>)</td>
 <td>CRC8-/CDMA2000 of <code>b0</code> to <code>b14</code></td>
 </tr>
 <tr>
 <td>CRC-8/DARC</td>
-<td>crc8darc(<strong>b0:b14</strong>)</td>
+<td>crc8darc(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/DVB-S2</td>
-<td>crc8dvbs2(<strong>b0:b14</strong>)</td>
+<td>crc8dvs2(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/EBU</td>
-<td>crc8ebu(<strong>b0:b14</strong>)</td>
+<td>crc8eu(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/I-CODE</td>
-<td>crc8icode(<strong>b0:b14</strong>)</td>
+<td>crc8icode(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/ITU</td>
-<td>crc8itu(<strong>b0:b14</strong>)</td>
+<td>crc8itu(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/MAXIM</td>
-<td>crc8maxim(<strong>b0:b14</strong>)</td>
+<td>crc8maxim(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/ROHC</td>
-<td>crc8rohc(<strong>b0:b14</strong>)</td>
+<td>crc8rohc(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 <tr>
 <td>CRC-8/WCDMA</td>
-<td>crc8wcdma(<strong>b0:b14</strong>)</td>
+<td>crc8wcdma(<strong>0:14</strong>)</td>
 <td>idem</td>
 </tr>
 </tbody>
