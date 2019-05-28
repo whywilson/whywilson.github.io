@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-28T07:35:05.250Z</updated>
+    <updated>2019-05-28T08:40:31.406Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -249,7 +249,7 @@ Supported CRC16 algorithm in MTools.</p>
 </tbody>
 </table>
 <h2 id="works-in-msniffer">Works in mSniffer</h2>
-<p>The exprssion of last byte <code>b15</code> is <code>crc8maxim(0:14)</code>, and the results are calculated correctly in a seconds.<br>
+<p>The exprssion of last byte <code>b15</code> is <code>crc8</code>, and the results are calculated correctly in a seconds.<br>
 <img src="https://why.yuyeye.cc/post-images/1559024659102.png" alt=""></p>
 ]]></content>
     </entry>
