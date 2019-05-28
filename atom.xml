@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-28T06:31:55.160Z</updated>
+    <updated>2019-05-28T06:34:40.648Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2019, W!K!</rights>
     <entry>
-        <title type="html"><![CDATA[How to calculate CRC8 & CRC16 by MTools]]></title>
+        <title type="html"><![CDATA[How to calculate CRC8 & CRC16 in MTools]]></title>
         <id>https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools</id>
         <link href="https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools">
         </link>
