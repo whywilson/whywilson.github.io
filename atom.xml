@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-05-29T02:41:54.952Z</updated>
+    <updated>2019-05-29T02:45:40.756Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -723,8 +723,8 @@ f.close()
         </link>
         <updated>2015-05-04T12:00:00.000Z</updated>
         <content type="html"><![CDATA[<ul>
-<li><a href="https://why.yuyeye.cc/mtools/zh">Help Documents</a></li>
-<li><a href="https://why.yuyeye.cc/mtools/zh/how_to_use_mtools.html">How to Use MTools</a></li>
+<li><a href="https://why.yuyeye.cc/mtools/en">Help Documents</a></li>
+<li><a href="https://why.yuyeye.cc/mtools/en/how_to_use_mtools.html">How to Use MTools</a></li>
 <li><a href="https://why.yuyeye.cc/post/how-to-use-nfc-as-a-mifare-card-reader/">How to use NFC as a mifare card reader - Read</a></li>
 <li><a href="http://why.yuyeye.cc/post/how-to-use-nfc-as-a-mifare-card-reader-charge/">How to use NFC as a mifare card reader - Charge</a></li>
 <li><a href="https://why.yuyeye.cc/mtools/zh/help_add_rules.html">Expression Sample</a></li>
