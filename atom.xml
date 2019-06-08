@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-06-07T14:59:24.991Z</updated>
+    <updated>2019-06-08T08:49:41.723Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -741,6 +741,7 @@ f.close()
 <li><a href="http://why.yuyeye.cc/post/how-to-use-nfc-as-a-mifare-card-reader-charge/">How to use NFC as a mifare card reader - Charge</a></li>
 <li><a href="https://why.yuyeye.cc/mtools/zh/help_add_rules.html">Expression Sample</a></li>
 <li><a href="https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools/">CRC8 &amp; CRC16 in MTools</a></li>
+<li><a href="https://why.yuyeye.cc/mtools/external_device.html">External NFC Device</a></li>
 </ul>
 <h2 id="youtube">YouTube</h2>
 <ul>
@@ -758,6 +759,7 @@ f.close()
 <li><a href="https://why.yuyeye.cc/mtools/zh/help_add_rules.html">表达式举例</a></li>
 <li><a href="https://why.yuyeye.cc/mtools/zh/tutorial/tutorial_0.html">教程1: 水卡充值</a></li>
 <li><a href="https://why.yuyeye.cc/mtools/zh/tutorial/tutorial_compare_hex_data.html">教程2: 对比分析HEX数据</a></li>
+<li><a href="https://why.yuyeye.cc/mtools/external_device.html">外置 NFC 设备</a></li>
 </ul>
 ]]></content>
     </entry>
