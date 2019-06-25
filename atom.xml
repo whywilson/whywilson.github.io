@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-06-25T03:26:07.122Z</updated>
+    <updated>2019-06-25T03:29:36.560Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -755,10 +755,6 @@ f.close()
 <li><a href="https://why.yuyeye.cc/mtools/zh/tutorial/tutorial_compare_hex_data.html">教程2: 对比分析HEX数据</a></li>
 <li><a href="https://why.yuyeye.cc/mtools/external_device.html">外置 NFC 设备</a></li>
 </ul>
-<html>
-<div id="runner"></div>
-<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
-<script>initRunner('#runner');</script>
-</html>]]></content>
+]]></content>
     </entry>
 </feed>
