@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OrangePiZero加装温控风扇 | W!K!</title>
-<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1561606248622">
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1561606521867">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://why.yuyeye.cc">
-  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1561606248622" alt="">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1561606521867" alt="">
   </a>
   <h1 class="site-title">
     W!K!
@@ -152,7 +152,7 @@ getTemp()函数  <code>通过文件读取并返回CPU温度</code></p>
 <pre><code>#include&lt;wiringPi.h&gt;  
 #include &lt;stdio.h&gt;  
 #include &lt;fcntl.h&gt;  
-  
+
 #define TEMP_PATH &quot;/sys/class/thermal/thermal_zone0/temp&quot;  
 #define MAX_SIZE 32  
 int main(void)   
@@ -166,14 +166,14 @@ int main(void)
 		if(status == 1 &amp;&amp; temp &lt; 40)
 		{
 			digitalWrite (11, LOW);
-    status = 0;
-    print(&quot;Turn OFF&quot;);
+			status = 0;
+			print(&quot;Turn OFF&quot;);
 		}
 		if(status == 0 &amp;&amp; temp &gt; 45)
 		{
 			digitalWrite (11, HIGH);
-    status = 1;
-    print(&quot;Turn ON&quot;);
+			status = 1;
+			print(&quot;Turn ON&quot;);
 		}
 		delay(1000);
 		printf(&quot;TEMP: %d℃\\n&quot;,temp);
@@ -183,29 +183,26 @@ int main(void)
 
 int getTemp()
 {
-    int fd;  
-    double temp = 0;  
-    char buf[MAX_SIZE];  
-      
-    fd = open(TEMP_PATH, O_RDONLY);  
-    if (fd &lt; 0) {  
-        fprintf(stderr, &quot;failed to open thermal_zone0/temp\n&quot;);  
-        return -1;  
-    }  
-      
-    if (read(fd, buf, MAX_SIZE) &lt; 0) {  
-        fprintf(stderr, &quot;failed to read temp\n&quot;);  
-        return -1;  
-    }  
-      
-    temp = atoi(buf);
-    close(fd);
+	int fd;  
+	double temp = 0;  
+	char buf[MAX_SIZE];  
 
-    return temp;
+	fd = open(TEMP_PATH, O_RDONLY);  
+	if (fd &lt; 0) {  
+		fprintf(stderr, &quot;failed to open thermal_zone0/temp\n&quot;);  
+		return -1;  
+	}  
+
+	if (read(fd, buf, MAX_SIZE) &lt; 0) {  
+		fprintf(stderr, &quot;failed to read temp\n&quot;);  
+		return -1;  
+	}  
+
+	temp = atoi(buf);
+	close(fd);
+
+	return temp;
 }
-
-}
-
 </code></pre>
 <h5 id="编译运行">编译&amp;运行</h5>
 <pre><code>gcc -o temp temp.c -lwiringPi &amp;&amp; ./temp
