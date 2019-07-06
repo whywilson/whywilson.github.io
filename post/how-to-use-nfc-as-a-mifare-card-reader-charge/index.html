@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to use NFC as a mifare card reader - Charge | W!K!</title>
-<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1561610352203">
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1562391298610">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://why.yuyeye.cc">
-  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1561610352203" alt="">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1562391298610" alt="">
   </a>
   <h1 class="site-title">
     W!K!
@@ -129,38 +129,38 @@
             </div>
             
             <div class="post-content">
-              <p>The last post shows how to use MTools to read money data on Sector 3.
+              <p>The last post shows how to use MTools to read money data on Sector 3.<br>
 Here's the tutorial to show how to charge mifare 1k card with regular rule on 2 blocks.</p>
 <!--more-->
 <h3 id="get-into-sniffer">Get into Sniffer</h3>
-<p>Sniffer is used to compare and analyse datas.
-<img src="https://why.yuyeye.cc/post-images/1557555799704.jpg" alt="">
+<p>Sniffer is used to compare and analyse datas.<br>
+<img src="https://why.yuyeye.cc/post-images/1557555799704.jpg" alt=""><br>
 By click on the icon, jump to Sniffer for different sector.</p>
 <h3 id="get-more-datas-to-compare">Get more datas to compare</h3>
 <p>You can add data to Sniffer by tag card with different amount or input manually.<br>
 And adding data can be added one by one or in bulk.<br>
-<img src="https://why.yuyeye.cc/post-images/1557558032740.jpg" alt="">
+<img src="https://why.yuyeye.cc/post-images/1557558032740.jpg" alt=""><br>
 The backgroud with different color means different or same between the byte and the one in next line.</p>
 <h3 id="mark-byte">Mark byte</h3>
 <p>It's easy to find that <code>88</code> <code>13</code> stands for <code>$50.00</code>, so mark it, choose rate and click reverse.<br>
-<img src="https://why.yuyeye.cc/post-images/1557558636357.jpg" alt="">
+<img src="https://why.yuyeye.cc/post-images/1557558636357.jpg" alt=""><br>
 In the next step, mark the byte that changes.<br>
 It should be <code>77</code> <code>EC</code> <code>88</code> <code>13</code>.<br>
-<img src="https://why.yuyeye.cc/post-images/1557558647538.jpg" alt="">
+<img src="https://why.yuyeye.cc/post-images/1557558647538.jpg" alt=""><br>
 Click <strong>OK</strong> and we'll add expression later on.</p>
 <h3 id="add-expression">Add expression</h3>
 <p>It's easy to find that <code>b8</code> and <code>b9</code> is the same as money byte.<br>
 So click to add expression  <code>b8 = b0</code>  <code>b9 = b1</code><br>
-<img src="https://why.yuyeye.cc/post-images/1557559700263.jpg" alt="">
-<code>b4</code> and <code>b5</code> is Bitwise <strong>NOT</strong> of <code>b0</code> and <code>b1</code>.
-So the expression is <code>b4 = not b0</code> <code>b5 =not b1</code>
-<img src="https://why.yuyeye.cc/post-images/1557560415606.jpg" alt="">
+<img src="https://why.yuyeye.cc/post-images/1557559700263.jpg" alt=""><br>
+<code>b4</code> and <code>b5</code> is Bitwise <strong>NOT</strong> of <code>b0</code> and <code>b1</code>.<br>
+So the expression is <code>b4 = not b0</code> <code>b5 =not b1</code><br>
+<img src="https://why.yuyeye.cc/post-images/1557560415606.jpg" alt=""><br>
 If all expressions are correct, the value in second line of each data shoud be the same as original byte.</p>
 <p>And add same expressions to Block 2 or copy it from Block 0  to Block 2.<br>
 <img src="https://why.yuyeye.cc/post-images/1557561077673.jpg" alt=""></p>
 <h3 id="preview-before-charge">Preview before charge</h3>
 <p>Tag car to read money, long press <code>$</code> button and the data, expression and calculating time will be shown.<br>
-(Expression is set to be hidden in default setting)
+(Expression is set to be hidden in default setting)<br>
 <img src="https://why.yuyeye.cc/post-images/1557561407792.jpg" alt=""></p>
 <h3 id="finally-enjoy-it">Finally enjoy it</h3>
 <p>The maximal amount is limited by the length of money byte.</p>

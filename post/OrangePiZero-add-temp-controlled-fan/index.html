@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OrangePiZero加装温控风扇 | W!K!</title>
-<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1561610352203">
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1562391298610">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://why.yuyeye.cc">
-  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1561610352203" alt="">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1562391298610" alt="">
   </a>
   <h1 class="site-title">
     W!K!
@@ -106,12 +106,12 @@
             
             <div class="post-content">
               <h3 id="写在前面">写在前面</h3>
-<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的
+<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的<br>
 这还是<s>春天</s>乱穿衣服的季节，到了夏天会不会炸机真不好说</p>
 <!-- more -->
-<p><img src="https://i.loli.net/2019/04/16/5cb52e810d92f.jpg" alt="Temperature.jpg">
-于是乎，捣鼓了一番，加装了散热风扇，利用了板载的一个USB口，一个GPIO口。
-先看看最后成品图
+<p><img src="https://i.loli.net/2019/04/16/5cb52e810d92f.jpg" alt="Temperature.jpg"><br>
+于是乎，捣鼓了一番，加装了散热风扇，利用了板载的一个USB口，一个GPIO口。<br>
+先看看最后成品图<br>
 <img src="https://ooo.0o0.ooo/2017/04/27/5901f9e410a3c.jpg" alt="Top_view.jpg"></p>
 <hr>
 <h3 id="思路">思路</h3>
@@ -130,8 +130,8 @@
 </blockquote>
 <hr>
 <h3 id="系统配置">系统配置</h3>
-<p>Orange Pi Zero 运行着 <code>Armbian</code>的5.27的夜版，内核为<code>3.4.113-sun8i</code>
-虽然最新<code>4.10.0-sun8i</code>支持谷歌BBR黑科技，并且温度可以精确到0.01℃
+<p>Orange Pi Zero 运行着 <code>Armbian</code>的5.27的夜版，内核为<code>3.4.113-sun8i</code><br>
+虽然最新<code>4.10.0-sun8i</code>支持谷歌BBR黑科技，并且温度可以精确到0.01℃<br>
 但是在这板子上还有诸多毛病：</p>
 <ul>
 <li>红外无法接收</li>
@@ -141,7 +141,7 @@
 </ul>
 <p>求稳，还是用3.4内核</p>
 <p><a href="https://www.armbian.com/orange-pi-zero/">Armbian官网</a> 固件下载<br>
-控制风扇运停转需要使用GPIO，橙子派上也有已经移植过来的wiringOP，事先需要构建下
+控制风扇运停转需要使用GPIO，橙子派上也有已经移植过来的wiringOP，事先需要构建下<br>
 <a href="https://github.com/xpertsavenue/WiringOP-Zero">GitHub传送门</a><br>
 <img src="https://ooo.0o0.ooo/2017/04/27/5902054b5d39d.png" alt="gpio.png"></p>
 <hr>
@@ -225,7 +225,7 @@ int getTemp()
 <h4 id="温度变化">温度变化</h4>
 <p><img src="https://ooo.0o0.ooo/2017/04/27/5902033b2eeb7.png" alt="armbianmonitor.png"></p>
 <h3 id="写在最后">写在最后</h3>
-<p>一次简单的软硬件配合，散热效果还算满意，最后加上 <code>开机自启</code>，估摸可以平安度过酷暑。
+<p>一次简单的软硬件配合，散热效果还算满意，最后加上 <code>开机自启</code>，估摸可以平安度过酷暑。<br>
 <img src="https://ooo.0o0.ooo/2017/04/27/5901f9e3c13f4.jpg" alt="Bottom_view.jpg"></p>
 
             </div>

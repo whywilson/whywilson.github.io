@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How to use NFC as a mifare card reader - Read | W!K!</title>
-<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1561610352203">
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1562391298610">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://why.yuyeye.cc">
-  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1561610352203" alt="">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1562391298610" alt="">
   </a>
   <h1 class="site-title">
     W!K!
@@ -139,8 +139,8 @@ This article shows how to use NFC as a mifare reader to read the amount remainin
 <li>Android APP: <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> or <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">MCT</a></li>
 </ol>
 <h3 id="keys-for-sector">Keys for sector</h3>
-<p>Mifare 1K Card is organized in 16 sectors of 4 blocks and one block consists of 16 byte.
-The keyA or keyB is necessary to access the data in each block.
+<p>Mifare 1K Card is organized in 16 sectors of 4 blocks and one block consists of 16 byte.<br>
+The keyA or keyB is necessary to access the data in each block.<br>
 To crack keys, you have to use external device such as ACR122U, PN532, PM3. Or you can try your luck with another APP named <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools.keygen">MKeys</a>. Mkeys works with Enumeration, not hacking with the libnfc.</p>
 <h3 id="find-sector-with-valid-data">Find sector with valid data</h3>
 <p>Mostly, the manufacture only use 1 or 2 sectors to store the valid data. So try to read all datas in MCT and compare to dump file with another amount. Then you'll find out.</p>
@@ -155,16 +155,16 @@ Here's an example of Card with a current balance of $50.00.</p>
 </code></pre>
 <p>Decimal <code>5000</code> to Hex is <code>0x1388</code>.<br>
 Only need to mark the first two bytes: <code>88</code> and <code>13</code>.<br>
-Click Reverse and choose Rate <code>100</code> then it will show <code>$50.00</code> correctly.
+Click Reverse and choose Rate <code>100</code> then it will show <code>$50.00</code> correctly.<br>
 <img src="https://why.yuyeye.cc/post-images/1557543245773.jpg" alt=""></p>
 <h3 id="about-check-bytes">About check bytes</h3>
 <p>Check byte is the byte that change alsong with the money byte regularly. So it has expression to calculate.<br>
 Currently, we only need to read how much money remain in the card. So no need to mark any check byte.<br>
-Just click <code>OK</code> or <code>SAVE</code>.
+Just click <code>OK</code> or <code>SAVE</code>.<br>
 <img src="https://why.yuyeye.cc/post-images/1557543252303.jpg" alt=""></p>
 <h3 id="how-to-read">How to read</h3>
-<p>Just to Record Fragment, now tap card near to NFC antenna.
-Now it has the balance shown.
+<p>Just to Record Fragment, now tap card near to NFC antenna.<br>
+Now it has the balance shown.<br>
 <img src="https://why.yuyeye.cc/post-images/1557543259434.jpg" alt=""></p>
 <h3 id="last-but-not-least">Last but not least</h3>
 <p>The expressions and rule are blank, so when you click <code>$</code> button in Record Fragment, only the first two bytes will change and it's not valide data. Long press <code>$</code> button to preview the data before charging.<br>
