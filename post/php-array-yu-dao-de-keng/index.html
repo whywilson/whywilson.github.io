@@ -1,9 +1,9 @@
 <html>
   <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>OpenWrt | W!K!</title>
+<title>PHP Array 遇到的坑 | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1567090307044">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -83,50 +83,33 @@
   </div>
 </div>
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：#OpenWrt
-            </h2> 
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              PHP Array 遇到的坑
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-08-06 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>使用<code>array_merge</code>时候，为了给数组追加记录，发现键名被重制了，查看php手册发现</p>
+<blockquote>
+<p>如果只给了一个数组并且该数组是数字索引的，则键名会以连续方式重新索引</p>
+</blockquote>
+<p>那么需要合并追加记录只需要 array相加即可</p>
+
+            </div>
+          </article>
         </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://why.yuyeye.cc/post/openwrt-customize-function-on-wps-button">
-        <h2 class="post-title">OpenWRT自定义按钮的功能</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-11 ·
-        </time>
-        
-          <a href="https://why.yuyeye.cc/tag/shell" class="post-tag">
-            # shell
-          </a>
-        
-          <a href="https://why.yuyeye.cc/tag/openwrt" class="post-tag">
-            # OpenWrt
-          </a>
-        
-          <a href="https://why.yuyeye.cc/tag/DIY" class="post-tag">
-            # DIY
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <p>几乎在所有的无线路由器基本上都有自带一个按钮，简简单单2个作用：<br>
-1.短按WPS连接<br>
-2.长按恢复出厂</p>
 
-      </di>
-    </article>
-  
-</div>
+        
 
-        <div class="pagination-container">
-  
-  
-</div>
+        
 
         <div class="site-footer">
   <div id="runner"></div>

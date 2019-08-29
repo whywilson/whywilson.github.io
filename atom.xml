@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-07-15T06:19:06.407Z</updated>
+    <updated>2019-08-29T14:51:51.902Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -10,6 +10,25 @@
     <logo>https://why.yuyeye.cc/images/avatar.png</logo>
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2019, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[使用ESP8266做一个天气小盒子]]></title>
+        <id>https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266</id>
+        <link href="https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266">
+        </link>
+        <updated>2019-08-26T13:03:11.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="day-1">Day 1</h1>
+<p>醒的好早，突然想到了做<code>Arduino</code>的点子，上班前就下单了两套微雪电子的<code>e-Paper ESP8266 Driver Board</code><br>
+<img src="https://why.yuyeye.cc/post-images/1567084690845.jpg" alt=""><br>
+一套搭配2.13英寸的红黑白电子墨水屏，另一套为1.54英寸的黄黑白电子墨水屏。<br>
+<img src="https://why.yuyeye.cc/post-images/1567087022883.jpg" alt=""></p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="day-1">Day 1</h1>
+<p>醒的好早，突然想到了做<code>Arduino</code>的点子，上班前就下单了两套微雪电子的<code>e-Paper ESP8266 Driver Board</code><br>
+<img src="https://why.yuyeye.cc/post-images/1567084690845.jpg" alt=""><br>
+一套搭配2.13英寸的红黑白电子墨水屏，另一套为1.54英寸的黄黑白电子墨水屏。<br>
+<img src="https://why.yuyeye.cc/post-images/1567087022883.jpg" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How to calculate CRC8 & CRC16 in MTools]]></title>
         <id>https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools</id>
