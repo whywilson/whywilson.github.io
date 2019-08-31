@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-08-29T15:05:54.521Z</updated>
+    <updated>2019-08-31T14:09:14.559Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -11,7 +11,26 @@
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2019, W!K!</rights>
     <entry>
-        <title type="html"><![CDATA[使用ESP8266做一个天气小盒子]]></title>
+        <title type="html"><![CDATA[使用python处理年份范围的汇总]]></title>
+        <id>https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python</id>
+        <link href="https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python">
+        </link>
+        <updated>2019-08-31T13:46:43.000Z</updated>
+        <summary type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求：</p>
+<ol>
+<li>连续的年份只显示最早与最末的年份</li>
+<li>独立没有连续的年份可单独跟随在之前</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求：</p>
+<ol>
+<li>连续的年份只显示最早与最末的年份</li>
+<li>独立没有连续的年份可单独跟随在之前</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[使用ESP8266做一个小心意儿]]></title>
         <id>https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266</id>
         <link href="https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266">
         </link>
@@ -128,12 +147,5 @@ This article shows how to use NFC as a mifare reader to read the amount remainin
         <content type="html"><![CDATA[<p>前几天很幸运的拿下了某网站数据库的mdf备份，然而其中的md5密文拿到cmd5.com<br>
 怎么也解不开，无奈去搜网站源码，终于在PPConn2.asp文件里找到了 PPMD5 函数</p>
 ]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MTools Guide]]></title>
-        <id>https://why.yuyeye.cc/post/mtools-guide</id>
-        <link href="https://why.yuyeye.cc/post/mtools-guide">
-        </link>
-        <updated>2015-05-04T12:00:00.000Z</updated>
     </entry>
 </feed>

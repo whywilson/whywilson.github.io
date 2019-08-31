@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | W!K!</title>
+<title>使用python处理年份范围的汇总 | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1567260551306">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,24 +87,88 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              使用python处理年份范围的汇总
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2015-05-04 ·
+                · 2019-08-31 ·
               </time>
+              
+                <a href="https://why.yuyeye.cc/tag/Python" class="post-tag">
+                  # Python
+                </a>
               
             </div>
             
             <div class="post-content">
-              <p>About</p>
-<p>Wilson -  <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> Developer.</p>
-<p>Why yuyeye? cc!</p>
+              <p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求：</p>
+<ol>
+<li>连续的年份只显示最早与最末的年份</li>
+<li>独立没有连续的年份可单独跟随在之前</li>
+</ol>
+<!-- more -->
+<p>例如，将数组<code>[1998, 1999, 2000, 2008, 2016, 2017, 2018, 2019]</code>处理成<code>1999 - 2000, 2008, 2016 - 2019</code><br>
+先直接上代码</p>
+<pre><code>def getYearArray(year_array_list):
+	list = &quot;&quot;
+	year_start = year_array_list[0]
+	year_end = year_start
+	year_add = 0
+	year_cycle = &quot;&quot;
+	last_year = 0
+	year_end = year_start
+	for year_now in year_array_list:
+		if(year_now == year_start + year_add):
+			year_end = year_now;
+			year_cycle = str(year_start) + &quot; - &quot; + str(year_end)
+			year_add = year_add + 1
+			if(year_now == year_array_list[len(year_array_list)-1]):
+				list = list + &quot;, &quot; + year_cycle
+		else:
+			if(len(list) == 0):
+				list = year_cycle
+			else:
+				if(year_cycle != &quot;&quot;):
+					list = list + &quot;, &quot; + year_cycle
+				else:
+					list = list + &quot;, &quot; + str(year_start)
+			year_start = year_now
+			year_end = year_start
+			year_cycle = &quot;&quot;
+			year_add = 1
+		if(len(year_array_list) == year_add):
+			list = year_cycle
+	print year_array_list	
+	return list
+
+
+if __name__ == '__main__':
+		print getYearArray([1999, 2000, 2001, 2002, 2005, 2006, 2007, 2009, 2013, 2016, 2017, 2018, 2019])
+</code></pre>
+<p>代码的关键在于判断与循环的点</p>
+<ol>
+<li>若年份连续，year_cycle的尾数则需要更新</li>
+<li>如果年份未连续，若year_cycle存在值，则追加到list，否则，追加当前份</li>
+<li>最后判断若整个数组为连续年份时，数组长度为累加的次数</li>
+</ol>
+<p>运行结果输出：</p>
+<pre><code>[1999, 2000, 2001, 2002, 2005, 2006, 2007, 2009, 2013, 2016, 2017, 2018, 2019]
+1999 - 2002, 2005 - 2007, 2009, 2013, 2016 - 2019
+</code></pre>
 
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266">
+              <h3 class="post-title">
+                使用ESP8266做一个小心意儿
+              </h3>
+            </a>
+          </div>
         
 
         
