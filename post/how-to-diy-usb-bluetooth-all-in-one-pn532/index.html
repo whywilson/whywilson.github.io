@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MTools 的 NDK 开发之路 | W!K!</title>
+<title>如何制作串口-蓝牙一体式PN532 | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1568433219883">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,26 +87,63 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              MTools 的 NDK 开发之路
+              如何制作串口-蓝牙一体式PN532
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-08-24 ·
+                · 2019-09-14 ·
               </time>
               
             </div>
             
             <div class="post-content">
-              <p>从2017年开始开发MTools时，就知道了 Androidbluespp 的存在，然而当时由于设备的原因，只支持在移动设备上用AIDE开发，并且无法使用最新的Android API很多新特性属性都无法触及，更别提NDK底层开发了。</p>
-<p>但是面对API被扒，数据接口会被泄露的风险，还是硬着头皮，艰难的学习NDK的开发，起码是首先是保护了下接口不那么容易泄露，其次，应用签名也安全了些。</p>
-<!-- more -->
-<p><code>2019年8月27日 01:35</code> 第一次在底层中用C语言成功调用了Java中的方法。<br>
-被困扰的关键是proguard.pro 混淆了方法，导致NoSuchMethodFoundError.</p>
+              <p>PN532作为史上最低成本RFID的硬件设备，是无法直接上电工作的，它需要在串口通信下传递数据，因此需要串口模块，那么所有串口通信的模块理论上都支持的，本文里接招制作一个带有USB串口和蓝牙串口的一体式PN532。</p>
+<h1 id="设备清单">设备清单</h1>
+<ol>
+<li>PN532 模块</li>
+<li>USB to TTL 模块</li>
+<li>蓝牙串口 模块</li>
+<li>小容量锂电池</li>
+<li>USB充电模块</li>
+<li>小开关</li>
+<li>导线若干</li>
+</ol>
+<h1 id="连线图">连线图</h1>
+<p><img src="https://why.yuyeye.cc/post-images/1568433091524.jpg" alt=""></p>
+<h1 id="蓝牙串口模块">蓝牙串口模块</h1>
+<p>PN532工作在115200的波特率下，根据你购买的串口模块，通过USB串口模块连接蓝牙模块，</p>
+<pre><code>VCC -&gt; 3.3V
+GND -&gt; GND
+TXD -&gt; RXD
+RXD -&gt; TXD
+</code></pre>
+<p>使用AT命令更改波特率为115200，也可以根据实际情况更改模块名称，测试通信正常后，则可以按照连接图连接蓝牙模块。</p>
+<h1 id="usb-串口模块">USB 串口模块</h1>
+<p>由于PN532自带两对串口输入输出，因此只需要将USB串口与蓝牙串口模块分两侧连接即可，参照连线图连接即可。</p>
+<h1 id="电源与充电模块">电源与充电模块</h1>
+<p>为了方便，我将开关与电池串联后，接在PN532板上的两个独立孔洞上，然后连接VCC和GND，简直完美的方式</p>
+<h1 id="成品">成品</h1>
+<p><img src="https://why.yuyeye.cc/post-images/1568433076114.jpg" alt=""></p>
+<h1 id="工作方式">工作方式</h1>
+<ul>
+<li>连接电脑的PN532上位机</li>
+<li>手机OTG连接搭配MTools 或 Nfc-Tools 使用</li>
+<li>手机蓝牙连接搭配MTools 或 Nfc-Tools 使用</li>
+</ul>
 
             </div>
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python">
+              <h3 class="post-title">
+                使用python处理年份范围的汇总
+              </h3>
+            </a>
+          </div>
         
 
         
