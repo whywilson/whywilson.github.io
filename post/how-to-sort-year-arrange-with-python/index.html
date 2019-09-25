@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>使用python处理年份范围的汇总 | W!K!</title>
-<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1568433415796">
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1569396510949">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://why.yuyeye.cc">
-  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1568433415796" alt="">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1569396510949" alt="">
   </a>
   <h1 class="site-title">
     W!K!
@@ -155,7 +155,7 @@ if __name__ == '__main__':
 <pre><code>[1999, 2000, 2001, 2002, 2005, 2006, 2007, 2009, 2013, 2016, 2017, 2018, 2019]
 1999 - 2002, 2005 - 2007, 2009, 2013, 2016 - 2019
 </code></pre>
-<p>以上代码还是存在问题，在后面的作业中，发现了新的解析思路：<br>
+<p>以上代码还是<span style="color: red; font-weight:bold;">存在问题</span>，在后面的作业中，发现了新的解析思路：<br>
 通过两个循环，连续则表示在一个list内，否则在new下一个list</p>
 <pre><code>def getYearArray(year_array_list):
 	year_summary = []
