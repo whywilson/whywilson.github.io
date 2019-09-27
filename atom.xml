@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-09-25T07:28:35.051Z</updated>
+    <updated>2019-09-27T06:27:44.684Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://why.yuyeye.cc/images/avatar.png</logo>
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2019, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[RFID Tools - The Best RFID App on Android Phone]]></title>
+        <id>https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone</id>
+        <link href="https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone">
+        </link>
+        <updated>2019-10-01T05:36:04.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[如何制作串口-蓝牙一体式PN532]]></title>
         <id>https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532</id>
@@ -27,17 +34,9 @@
         <link href="https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python">
         </link>
         <updated>2019-08-31T13:46:43.000Z</updated>
-        <summary type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求：</p>
-<ul>
-<li>连续的年份只显示最早与最末的年份</li>
-<li>独立没有连续的年份可单独跟随在之前</li>
-</ul>
+        <summary type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求。要求是连续的年份只显示最早与最末的年份，独立没有连续的年份可单独跟随在之前</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求：</p>
-<ul>
-<li>连续的年份只显示最早与最末的年份</li>
-<li>独立没有连续的年份可单独跟随在之前</li>
-</ul>
+        <content type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求。要求是连续的年份只显示最早与最末的年份，独立没有连续的年份可单独跟随在之前</p>
 ]]></content>
     </entry>
     <entry>
@@ -129,21 +128,6 @@ This article shows how to use NFC as a mifare reader to read the amount remainin
         <content type="html"><![CDATA[<p>NFC has been widely used on Android Pay, Apple Pay and Device Connection.<br>
 With NFC on Android Phone, it's even easy to read datas in the mifare card, such as Metro Card, RFID Parking card and etc.<br>
 This article shows how to use NFC as a mifare reader to read the amount remaining in the card.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OrangePiZero加装温控风扇]]></title>
-        <id>https://why.yuyeye.cc/post/OrangePiZero-add-temp-controlled-fan</id>
-        <link href="https://why.yuyeye.cc/post/OrangePiZero-add-temp-controlled-fan">
-        </link>
-        <updated>2017-04-30T06:06:13.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
-<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的<br>
-这还是<s>春天</s>乱穿衣服的季节，到了夏天会不会炸机真不好说</p>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="写在前面">写在前面</h3>
-<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的<br>
-这还是<s>春天</s>乱穿衣服的季节，到了夏天会不会炸机真不好说</p>
 ]]></content>
     </entry>
 </feed>

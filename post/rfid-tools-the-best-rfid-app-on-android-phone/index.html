@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>记一次对md5密文的解密 | W!K!</title>
+<title>RFID Tools - The Best RFID App on Android Phone | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1569565663097">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,69 +87,17 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              记一次对md5密文的解密
+              RFID Tools - The Best RFID App on Android Phone
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2017-04-25 ·
+                · 2019-10-01 ·
               </time>
-              
-                <a href="https://why.yuyeye.cc/tag/Python" class="post-tag">
-                  # Python
-                </a>
-              
-                <a href="https://why.yuyeye.cc/tag/Hacker" class="post-tag">
-                  # Hacker
-                </a>
               
             </div>
             
             <div class="post-content">
-              <p>前几天很幸运的拿下了某网站数据库的mdf备份，然而其中的md5密文拿到cmd5.com<br>
-怎么也解不开，无奈去搜网站源码，终于在PPConn2.asp文件里找到了 PPMD5 函数</p>
-<!-- more -->
-<pre><code>Function PPMd5(Str)
-PPMd5=Md5(Str)
-PPMd5=StrReverse(Mid(PPMd5,29,4)&amp;Mid(PPMd5,22,7)&amp;Mid(PPMd5,15,7)&amp;Mid(PPMd5,8,7)&amp;Mid(PPMd5,1,7))
-</code></pre>
-<hr>
-<p>解析</p>
-<ol>
-<li>首先对得到密码明文的32位 MD5值</li>
-<li>对 MD5值 按 7,7,7,7,4 的字符数 倒序重排</li>
-<li>对步骤2得到的32位字符串 倒序 得到最终密文</li>
-</ol>
-<hr>
-<p>一番折腾，用Python实现了解密</p>
-<pre><code>def reverseStr(string):  
-    return string[::-1] 
-def fixStr(x,i):
-    while(len(x)&lt;i):
-        x = x+ &quot; &quot;
-    return x
-
-f = file('pwd_md5.txt')
-lines = f.readlines()
-
-for line in lines:
-   datas = line.split()
-   a = [data for data in datas]
-   print a[0] + &quot; &gt;&gt;&quot;,
-   a[0] = reverseStr(a[0])
-   print a[0] + &quot; &gt;&gt;&quot;,
-   print a[0][25:32]+a[0][18:25]+a[0][11:18]+a[0]   [4:11]+a[0][0:4] + &quot; ||&quot;,
-   print fixStr(a[1],10)
-
-f.close()
-</code></pre>
-<hr>
-<p>原理</p>
-<pre><code>读取 &gt; 倒序 &gt; 重排
-</code></pre>
-<hr>
-<p>效果预览<br>
-<img src="https://ooo.0o0.ooo/2017/04/26/58ffcbcfc054d.jpeg" alt="pwd-md5"><br>
-接着拿去解密，密码到手😂</p>
+              <p>Meeting RFID - Radio Frequency IDentification,</p>
 
             </div>
           </article>
@@ -158,9 +106,9 @@ f.close()
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://why.yuyeye.cc/post/mtools-guide">
+            <a href="https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532">
               <h3 class="post-title">
-                MTools Guide
+                如何制作串口-蓝牙一体式PN532
               </h3>
             </a>
           </div>
