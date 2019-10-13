@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2019-10-13T10:53:10.261Z</updated>
+    <updated>2019-10-13T10:56:07.377Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -16,9 +16,9 @@
         <link href="https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card">
         </link>
         <updated>2019-10-13T09:14:57.000Z</updated>
-        <summary type="html"><![CDATA[<p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. There are some different reasons which may cause this issues.</p>
+        <summary type="html"><![CDATA[<p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. The answer is NO to general MIFARE 1K Card.</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. There are some different reasons which may cause this issues.</p>
+        <content type="html"><![CDATA[<p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. The answer is NO to general MIFARE 1K Card.</p>
 ]]></content>
     </entry>
     <entry>
