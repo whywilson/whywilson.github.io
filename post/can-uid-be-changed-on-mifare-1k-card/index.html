@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>RFID Tools - The Best RFID App on Android Phone | W!K!</title>
+<title>Can UID be changed on Mifare 1K Card? | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1570963946739">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,46 +87,64 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              RFID Tools - The Best RFID App on Android Phone
+              Can UID be changed on Mifare 1K Card?
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-10-01 ·
+                · 2019-10-13 ·
               </time>
+              
+                <a href="https://why.yuyeye.cc/tag/pn532" class="post-tag">
+                  # PN532
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/acr122u" class="post-tag">
+                  # ACR122U
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID" class="post-tag">
+                  # RFID
+                </a>
               
             </div>
             
             <div class="post-content">
-              <p>Meeting RFID - Radio Frequency IDentification, there are a lot of excellent open-source tools and great devices for sniffing and cracking. And mostly, those open-source projects are built for Linux and Windows. In this title I'll introduce the best RFID App, <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">RFID Tools</a>, which supports a lot of <a href="https://github.com/nfc-tools/libnfc">libnfc</a> tools on Android Phone.</p>
+              <p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. There are some different reasons which may cause this issues.</p>
 <!-- more -->
-<p>To start learning RFID, A device named ACR122U or PN532 can be the most cost-effective choice for beginners.<br>
-<img src="https://why.yuyeye.cc/post-images/1570956261121.jpg" alt=""><br>
-And the commands bellow is mostly used with these devices.</p>
+<h1 id="main-reason">Main Reason</h1>
 <ul>
-<li>mfoc - Mifare Classic Offline Cracker</li>
-<li>mfcuk - MiFare Classic Universal toolKit</li>
-<li>nfc-list - Sniff and list all card</li>
-<li>nfc-mfclassic - Read or write Mifare Classic Card with keys authentication</li>
-<li>nfc-mfsetuid - Set new UID on Chinese Magic UID changeable Card</li>
+<li>Card Type</li>
+<li>Read/Write Device</li>
+<li>Apps</li>
 </ul>
-<p>About the app -  RFID Tools, the tools above are all compiled to Android, that's a really huge project and it's also open source on <a href="https://github.com/RfidResearchGroup/RFIDtools">Github</a> by the young developer DXL.<br>
-Supported Device on RFID Tools</p>
+<h2 id="choose-uid-changeable-card">Choose UID Changeable Card</h2>
 <ul>
-<li>Interial NFC</li>
-<li>Proxmark3 RDV4.0</li>
-<li>ChameleonMini RefE</li>
-<li>ACR122U</li>
-<li>PN532</li>
+<li>The UID general MIFARE 1K CARD is the first 4 bytes in block 0 of sectors 0 and it cannot be modified after manufactured.</li>
+<li>The 1st generation of UID Changeable Card was named, Chinese Magic Card. Its UID can be changed by external device, such as PN532, ACR122U, PM3 etc. The device need to be worked with nfc-mfsetuid on Linux or <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">RFID Tools</a> on Android.</li>
+<li>The 2nd generation of UID Changeable Card was named CUID Card, the block 0 of sector 0 can be edited like other blocks. It can be modified with interial NFC by <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">MCT</a>, <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">MTools</a> also <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">RFID Tools</a>.</li>
 </ul>
-<p>To make the app supports so many devices, DXL abstract read/write, backdoor command methods of operating Mifare 1k Card and all device can handle data in card in one fragment page in app.<br>
-<img src="https://why.yuyeye.cc/post-images/1570957182953.png" alt=""></p>
-<p>Working with ACR122U<br>
-nfc-list Result<br>
-<img src="https://why.yuyeye.cc/post-images/1570957571315.png" alt="Nfc-list Result"><br>
-mfoc Result<br>
-<img src="https://why.yuyeye.cc/post-images/1570957613346.png" alt="mfoc Result"></p>
-<p>And you can even change UID in block 0 of sector 0 on Chinese Magic Card. Just need to choose <strong>Writeing 0 blocks (dangerous)</strong> in Write Options.<br>
-This app is just like a Swiss Army Knife, so powerful and portable with those device above. All you guys should have a try that. It's even free to download on <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">Play Store</a>.</p>
+<h2 id="choose-an-external-device">Choose An External Device</h2>
+<ul>
+<li>PN532 - The most cost-effective device which is less than $5.</li>
+<li>ACR122U - Full SDK support on Android, Linux and Windows. Same chips as PN532.</li>
+<li>PM3 - Full-encrypted MIFARE CARD craker in minutes while PN532 will take days.</li>
+</ul>
+<h2 id="choose-a-powerfull-app">Choose A Powerfull App</h2>
+<ul>
+<li>MCT - Can only change UID of the 2st generation of UID Changeable Card.</li>
+<li>RFID Tools -  All devices and All UID Changeable Card Support.</li>
+</ul>
+<h1 id="the-best-option">The Best Option</h1>
+<ol>
+<li>Buy a set of PN532 and the 1st Chinese Magic Card.</li>
+<li>Crack keys of original card with RFID Tools](https://play.google.com/store/apps/details?id=tk.toolkeys.mtools).</li>
+<li>Write datas back to the 1st Chinese Magic Card.</li>
+<li>Test to be done.</li>
+</ol>
 
             </div>
           </article>
@@ -135,9 +153,9 @@ This app is just like a Swiss Army Knife, so powerful and portable with those de
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532">
+            <a href="https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone">
               <h3 class="post-title">
-                如何制作串口-蓝牙一体式PN532
+                RFID Tools - The Best RFID App on Android Phone
               </h3>
             </a>
           </div>
