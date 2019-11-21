@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>记一次对md5密文的解密 | W!K!</title>
+<title>How to use Sniffer in MTools | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1574350423233">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -87,69 +87,74 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              记一次对md5密文的解密
+              How to use Sniffer in MTools
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2017-04-25 ·
+                · 2019-11-16 ·
               </time>
               
-                <a href="https://why.yuyeye.cc/tag/Python" class="post-tag">
-                  # Python
+                <a href="https://why.yuyeye.cc/tag/MTools" class="post-tag">
+                  # MTools
                 </a>
               
-                <a href="https://why.yuyeye.cc/tag/Hacker" class="post-tag">
-                  # Hacker
+                <a href="https://why.yuyeye.cc/tag/NFC" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID" class="post-tag">
+                  # RFID
                 </a>
               
             </div>
             
             <div class="post-content">
-              <p>前几天很幸运的拿下了某网站数据库的mdf备份，然而其中的md5密文拿到cmd5.com<br>
-怎么也解不开，无奈去搜网站源码，终于在PPConn2.asp文件里找到了 PPMD5 函数</p>
+              <p>Depending on the Firebase of MTools, only 15% of MTools users have used Sniffer functions of MTools. It's really a easy tools for comparison and analysing. In this article, I'll show the tutorial of how to use Sniffer in MTools.</p>
 <!-- more -->
-<pre><code>Function PPMd5(Str)
-PPMd5=Md5(Str)
-PPMd5=StrReverse(Mid(PPMd5,29,4)&amp;Mid(PPMd5,22,7)&amp;Mid(PPMd5,15,7)&amp;Mid(PPMd5,8,7)&amp;Mid(PPMd5,1,7))
-</code></pre>
-<hr>
-<p>解析</p>
+<h1 id="why-use-sniffer">Why use Sniffer</h1>
+<p>After getting the keys of a sector which contains valid datas, we need to compare datas in different amount. So I made the Sniffer in MTools to gather and compare datas more easily.<br>
+The light-pink and light-blue backgroud shows if the bytes change.<br>
+<img src="https://why.yuyeye.cc/post-images/1574347906909.jpg" alt=""></p>
+<h1 id="where-is-sniffer-in-mtools">Where is Sniffer in MTools</h1>
+<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1574347023367.jpg" alt=""></figure>
 <ol>
-<li>首先对得到密码明文的32位 MD5值</li>
-<li>对 MD5值 按 7,7,7,7,4 的字符数 倒序重排</li>
-<li>对步骤2得到的32位字符串 倒序 得到最终密文</li>
+<li>After adding a card in List Fragment, you can add a sector in Detail Fragment.</li>
+<li>Fill in the keyA and keyB on one sector depending on your needs.</li>
+<li>Click the 3rd section.</li>
 </ol>
-<hr>
-<p>一番折腾，用Python实现了解密</p>
-<pre><code>def reverseStr(string):  
-    return string[::-1] 
-def fixStr(x,i):
-    while(len(x)&lt;i):
-        x = x+ &quot; &quot;
-    return x
+<h1 id="how-to-use-sniffer">How to use Sniffer</h1>
+<ol>
+<li>Mark Money Bytes<br>
+<img src="https://why.yuyeye.cc/post-images/1574349436660.jpg" alt=""></li>
+<li>Mark Check Bytes<br>
+<img src="https://why.yuyeye.cc/post-images/1574349445281.jpg" alt=""></li>
+<li>Tips of Expression</li>
+</ol>
+<pre><code>Operator 
+   • + - × ÷ Modulo ➡ + - * / # 
+   • XOR ➡ @^ ➡ xor 
+   • NOT ➡ @～ ➡ not 
+   • AND ➡ @&amp; ➡ and 
+   • OR ➡ @| ➡ or 
+   • Signed left shift n ➡ @&lt;&lt;n 
+   • Signed right shift n ➡ @&gt;&gt;n 
+   • More 
 
-f = file('pwd_md5.txt')
-lines = f.readlines()
-
-for line in lines:
-   datas = line.split()
-   a = [data for data in datas]
-   print a[0] + &quot; &gt;&gt;&quot;,
-   a[0] = reverseStr(a[0])
-   print a[0] + &quot; &gt;&gt;&quot;,
-   print a[0][25:32]+a[0][18:25]+a[0][11:18]+a[0]   [4:11]+a[0][0:4] + &quot; ||&quot;,
-   print fixStr(a[1],10)
-
-f.close()
+Examples 
+   • b2=b1 ➡ b2=b1 
+   • b4=b2+0x1F ➡ b4=b2+31(decimal) 
+   • b15=b0 xor b1 ➡ b15=b0 xor b1 
+   • b2=not b0 ➡ b2=not b0 Note 
+   • Convert constant to decimal 
+   • Drag up/down to change the order of calculation
 </code></pre>
-<hr>
-<p>原理</p>
-<pre><code>读取 &gt; 倒序 &gt; 重排
-</code></pre>
-<hr>
-<p>效果预览<br>
-<img src="https://ooo.0o0.ooo/2017/04/26/58ffcbcfc054d.jpeg" alt="pwd-md5"><br>
-接着拿去解密，密码到手😂</p>
+<ol start="4">
+<li>After Expression added<br>
+<img src="https://why.yuyeye.cc/post-images/1574350100574.jpg" alt=""></li>
+</ol>
+<h1 id="conclusion">Conclusion</h1>
+<p>If there is no <strong>Strikethrough</strong> on check bytes, it means all expressions are correct.<br>
+Now you know another tips of MTools.</p>
 
             </div>
           </article>
@@ -158,9 +163,9 @@ f.close()
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://why.yuyeye.cc/post/mtools-guide">
+            <a href="https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card">
               <h3 class="post-title">
-                MTools Guide
+                Can UID be changed on Mifare 1K Card?
               </h3>
             </a>
           </div>
