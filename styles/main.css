@@ -783,6 +783,10 @@ td {
         font-size: 15px;
       }
     
+      a:hover {
+        color: #52ACF9;
+      }
+    
       .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -805,5 +809,10 @@ td {
     display: table;
     margin: 0 auto;
     padding: 10px;
+}
+a.menu {
+    background-color: #52ACF9;
+    margin: 4px;
+    color: white;
 }
     
