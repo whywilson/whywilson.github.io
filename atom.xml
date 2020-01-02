@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2020-01-02T02:45:48.075Z</updated>
+    <updated>2020-01-02T15:30:11.548Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://why.yuyeye.cc/images/avatar.png</logo>
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2020, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[2020年速卖通如何抓取同行运费模板]]></title>
+        <id>https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method</id>
+        <link href="https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method">
+        </link>
+        <updated>2020-01-02T13:23:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多多少都回影响店铺的销售和本身的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多多少都回影响店铺的销售和本身的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How to use Sniffer in MTools]]></title>
         <id>https://why.yuyeye.cc/post/how-to-use-sniffer-in-mtools</id>
@@ -113,19 +124,6 @@
         <content type="html"><![CDATA[<p>几乎在所有的无线路由器基本上都有自带一个按钮，简简单单2个作用：<br>
 1.短按WPS连接<br>
 2.长按恢复出厂</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[4 Steps to clone access card by phone]]></title>
-        <id>https://why.yuyeye.cc/post/4-steps-to-clone-access-card</id>
-        <link href="https://why.yuyeye.cc/post/4-steps-to-clone-access-card">
-        </link>
-        <updated>2019-01-01T01:58:07.000Z</updated>
-        <summary type="html"><![CDATA[<p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
-Follow the steps bellow to clone an access card.</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
-Follow the steps bellow to clone an access card.</p>
 ]]></content>
     </entry>
 </feed>
