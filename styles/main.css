@@ -815,4 +815,8 @@ a.menu {
     margin: 4px;
     color: white;
 }
+a.tag {
+    background: #52ACF9! important;
+    color: white;
+}
     
