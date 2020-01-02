@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2020-01-02T15:34:37.743Z</updated>
+    <updated>2020-01-02T15:35:49.014Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -16,9 +16,9 @@
         <link href="https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method">
         </link>
         <updated>2020-01-02T13:23:23.000Z</updated>
-        <summary type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多多少都回影响店铺的销售和本身的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置。</p>
+        <summary type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多过少都会影响店铺的销售和运费的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置，同事为客户与卖家节省成本。</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多多少都回影响店铺的销售和本身的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置。</p>
+        <content type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多过少都会影响店铺的销售和运费的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置，同事为客户与卖家节省成本。</p>
 ]]></content>
     </entry>
     <entry>
