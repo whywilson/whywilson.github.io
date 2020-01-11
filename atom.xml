@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2020-01-03T01:43:14.051Z</updated>
+    <updated>2020-01-11T12:18:28.085Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://why.yuyeye.cc/images/avatar.png</logo>
     <icon>https://why.yuyeye.cc/favicon.ico</icon>
     <rights>All rights reserved 2020, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[2020年抓取亚马逊Review新方法-Web Scraper实际应用]]></title>
+        <id>https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-202</id>
+        <link href="https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-202">
+        </link>
+        <updated>2020-01-06T14:46:02.000Z</updated>
+        <summary type="html"><![CDATA[<p>亚马逊的链接混淆大法是出了名的强，同一个链接不同人，不同IP下手缺不能打开，用类似抓取速卖通运费模板的Python直接抓json的方式行不通了，这次就用上了Web Scraper的可视化数据抓取插件。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>亚马逊的链接混淆大法是出了名的强，同一个链接不同人，不同IP下手缺不能打开，用类似抓取速卖通运费模板的Python直接抓json的方式行不通了，这次就用上了Web Scraper的可视化数据抓取插件。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[2020年速卖通如何抓取同行运费模板]]></title>
         <id>https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method</id>
@@ -109,21 +120,6 @@
         <summary type="html"><![CDATA[<p>在之前遇到的数据中，由于同一部件的可替换不同产品，造成了同一行出现了2次及以上同样的字段和属性值，而只需要其中的一个以及对应值即可，此文记录下处理的过程。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>在之前遇到的数据中，由于同一部件的可替换不同产品，造成了同一行出现了2次及以上同样的字段和属性值，而只需要其中的一个以及对应值即可，此文记录下处理的过程。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[OpenWRT自定义按钮的功能]]></title>
-        <id>https://why.yuyeye.cc/post/openwrt-customize-function-on-wps-button</id>
-        <link href="https://why.yuyeye.cc/post/openwrt-customize-function-on-wps-button">
-        </link>
-        <updated>2019-03-11T12:30:30.000Z</updated>
-        <summary type="html"><![CDATA[<p>几乎在所有的无线路由器基本上都有自带一个按钮，简简单单2个作用：<br>
-1.短按WPS连接<br>
-2.长按恢复出厂</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>几乎在所有的无线路由器基本上都有自带一个按钮，简简单单2个作用：<br>
-1.短按WPS连接<br>
-2.长按恢复出厂</p>
 ]]></content>
     </entry>
 </feed>
