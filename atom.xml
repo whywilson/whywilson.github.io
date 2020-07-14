@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://why.yuyeye.cc</id>
     <title>W!K!</title>
-    <updated>2020-01-17T07:06:47.339Z</updated>
+    <updated>2020-07-14T02:13:52.760Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://why.yuyeye.cc"/>
     <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2020, W!K!</rights>
     <entry>
         <title type="html"><![CDATA[2020年抓取亚马逊Review新方法-Web Scraper实际应用]]></title>
-        <id>https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-2020</id>
-        <link href="https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-2020">
+        <id>https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-2020/</id>
+        <link href="https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-2020/">
         </link>
         <updated>2020-01-06T14:46:02.000Z</updated>
         <summary type="html"><![CDATA[<p>亚马逊的链接混淆大法是出了名的强，同一个链接不同人，不同IP下手缺不能打开，用类似抓取速卖通运费模板的Python直接抓json的方式行不通了，这次就用上了Web Scraper的可视化数据抓取插件。</p>
@@ -23,8 +23,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[2020年速卖通如何抓取同行运费模板]]></title>
-        <id>https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method</id>
-        <link href="https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method">
+        <id>https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method/</id>
+        <link href="https://why.yuyeye.cc/post/2020-AliExpress-how-to-set-shipping-method/">
         </link>
         <updated>2020-01-02T13:23:23.000Z</updated>
         <summary type="html"><![CDATA[<p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多过少都会影响店铺的销售和运费的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置，同事为客户与卖家节省成本。</p>
@@ -34,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[How to use Sniffer in MTools]]></title>
-        <id>https://why.yuyeye.cc/post/how-to-use-sniffer-in-mtools</id>
-        <link href="https://why.yuyeye.cc/post/how-to-use-sniffer-in-mtools">
+        <id>https://why.yuyeye.cc/post/how-to-use-sniffer-in-mtools/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-use-sniffer-in-mtools/">
         </link>
         <updated>2019-11-16T13:30:28.000Z</updated>
         <summary type="html"><![CDATA[<p>Depending on the Firebase of MTools, only 15% of MTools users have used Sniffer functions of MTools. It's really a easy tools for comparison and analysing. In this article, I'll show the tutorial of how to use Sniffer in MTools.</p>
@@ -45,8 +45,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Can UID be changed on Mifare 1K Card?]]></title>
-        <id>https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card</id>
-        <link href="https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card">
+        <id>https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card/</id>
+        <link href="https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card/">
         </link>
         <updated>2019-10-13T09:14:57.000Z</updated>
         <summary type="html"><![CDATA[<p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. The answer is NO to general MIFARE 1K Card.</p>
@@ -56,8 +56,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[RFID Tools - The Best RFID App on Android Phone]]></title>
-        <id>https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone</id>
-        <link href="https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone">
+        <id>https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone/</id>
+        <link href="https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone/">
         </link>
         <updated>2019-10-01T05:36:04.000Z</updated>
         <summary type="html"><![CDATA[<p>Meeting RFID - Radio Frequency IDentification, there are a lot of excellent open-source tools and great devices for sniffing and cracking. And mostly, those open-source projects are built for Linux and Windows. In this title I'll introduce the best RFID App, <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">RFID Tools</a>, which supports a lot of <a href="https://github.com/nfc-tools/libnfc">libnfc</a> tools on Android Phone.</p>
@@ -67,8 +67,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[如何制作串口-蓝牙一体式PN532]]></title>
-        <id>https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532</id>
-        <link href="https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532">
+        <id>https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-diy-usb-bluetooth-all-in-one-pn532/">
         </link>
         <updated>2019-09-14T03:26:04.000Z</updated>
         <summary type="html"><![CDATA[<p>PN532作为史上最低成本RFID的硬件设备，是无法直接上电工作的，它需要在串口通信下传递数据，因此需要串口模块，那么所有串口通信的模块理论上都支持的，本文里接招制作一个带有USB串口和蓝牙串口的一体式PN532。</p>
@@ -78,8 +78,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[使用python处理年份范围的汇总]]></title>
-        <id>https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python</id>
-        <link href="https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python">
+        <id>https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python/">
         </link>
         <updated>2019-08-31T13:46:43.000Z</updated>
         <summary type="html"><![CDATA[<p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求。要求是连续的年份只显示最早与最末的年份，独立没有连续的年份可单独跟随在之前</p>
@@ -89,8 +89,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[使用ESP8266做一个小心意儿]]></title>
-        <id>https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266</id>
-        <link href="https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266">
+        <id>https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266/</id>
+        <link href="https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266/">
         </link>
         <updated>2019-08-26T13:03:11.000Z</updated>
         <summary type="html"><![CDATA[<h1 id="day-1">Day 1</h1>
@@ -102,8 +102,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[How to calculate CRC8 & CRC16 in MTools]]></title>
-        <id>https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools</id>
-        <link href="https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools">
+        <id>https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools/">
         </link>
         <updated>2019-05-26T12:15:58.000Z</updated>
         <summary type="html"><![CDATA[<p>CRC - Cyclic Redundancy Check is widely used in data transition. According to <code>wikipedia.org</code>, A CRC-enabled device calculates a short, fixed-length binary sequence, known as the check value or CRC, for each block of data to be sent or stored and appends it to the data, forming a codeword.</p>
@@ -113,8 +113,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Python 数据处理之字段去重]]></title>
-        <id>https://why.yuyeye.cc/post/python-data-processing-deduplication</id>
-        <link href="https://why.yuyeye.cc/post/python-data-processing-deduplication">
+        <id>https://why.yuyeye.cc/post/python-data-processing-deduplication/</id>
+        <link href="https://why.yuyeye.cc/post/python-data-processing-deduplication/">
         </link>
         <updated>2019-05-22T12:21:59.000Z</updated>
         <summary type="html"><![CDATA[<p>在之前遇到的数据中，由于同一部件的可替换不同产品，造成了同一行出现了2次及以上同样的字段和属性值，而只需要其中的一个以及对应值即可，此文记录下处理的过程。</p>
