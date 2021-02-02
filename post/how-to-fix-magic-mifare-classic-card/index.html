@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>How to use Sniffer in MTools | W!K!</title>
+<title>How To Fix Magic Mifare Classic Card | W!K!</title>
 <link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1612236407202">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
@@ -91,11 +91,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              How to use Sniffer in MTools
+              How To Fix Magic Mifare Classic Card
             </h2>
             <div class="post-info">
               <time class="post-time">
-                · 2019-11-16 ·
+                · 2021-02-02 ·
               </time>
               
                 <a href="https://why.yuyeye.cc/tag/MTools/" class="post-tag">
@@ -113,52 +113,56 @@
             </div>
             
             <div class="post-content">
-              <p>Depending on the Firebase of MTools, only 15% of MTools users have used Sniffer functions of MTools. It's really a easy tools for comparison and analysing. In this article, I'll show the tutorial of how to use Sniffer in MTools.</p>
+              <p>The Magic Mifare Classic 1K card has not only changeable UID, but also full backer door command surrport. When we write error datas to the magic card cards, they also can be no response or dead. Here's the tutorial to fix the Magic Mifare Classic Card.</p>
 <!-- more -->
-<h1 id="why-use-sniffer">Why use Sniffer</h1>
-<p>After getting the keys of a sector which contains valid datas, we need to compare datas in different amount. So I made the Sniffer in MTools to gather and compare datas more easily.<br>
-The light-pink and light-blue backgroud shows if the bytes change.<br>
-<img src="https://why.yuyeye.cc/post-images/1574347906909.jpg" alt="" loading="lazy"></p>
-<h1 id="where-is-sniffer-in-mtools">Where is Sniffer in MTools</h1>
-<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1574347023367.jpg" alt="" loading="lazy"></figure>
+<h2 id="when-to-fix-magic-card">When to fix magic card?</h2>
 <ol>
-<li>After adding a card in List Fragment, you can add a sector in Detail Fragment.</li>
-<li>Fill in the keyA and keyB on one sector depending on your needs.</li>
-<li>Click the 3rd section.</li>
+<li>It was written with invalid SAK byte.<br>
+The valid SAK bytes are 08, 18, 28.<br>
+If other Hex number is writen to the card, there will be NO response to NFC at all.</li>
+<li>It has invalid access control byte.<br>
+The default access control byte is <strong>FF078069</strong>.<br>
+The sector with invalid access control byte will be a dead sector.</li>
 </ol>
-<h1 id="how-to-use-sniffer">How to use Sniffer</h1>
+<h2 id="how-to-fix-it">How to fix it?</h2>
+<h3 id="install-libnfc-tool">Install <strong>libnfc</strong> tool</h3>
+<h4 id="on-linux">On Linux</h4>
 <ol>
-<li>Mark Money Bytes<br>
-<img src="https://why.yuyeye.cc/post-images/1574349436660.jpg" alt="" loading="lazy"></li>
-<li>Mark Check Bytes<br>
-<img src="https://why.yuyeye.cc/post-images/1574349445281.jpg" alt="" loading="lazy"></li>
-<li>Tips of Expression</li>
+<li>Get the code <code>git clone https://github.com/nfc-tools/libnfc</code></li>
+<li>Compile and Install</li>
 </ol>
-<pre><code>Operator 
-   • + - × ÷ Modulo ➡ + - * / # 
-   • XOR ➡ @^ ➡ xor 
-   • NOT ➡ @～ ➡ not 
-   • AND ➡ @&amp; ➡ and 
-   • OR ➡ @| ➡ or 
-   • Signed left shift n ➡ @&lt;&lt;n 
-   • Signed right shift n ➡ @&gt;&gt;n 
-   • More 
-
-Examples 
-   • b2=b1 ➡ b2=b1 
-   • b4=b2+0x1F ➡ b4=b2+31(decimal) 
-   • b15=b0 xor b1 ➡ b15=b0 xor b1 
-   • b2=not b0 ➡ b2=not b0 Note 
-   • Convert constant to decimal 
-   • Drag up/down to change the order of calculation
+<pre><code>cd libnfc
+autoreconf -vis
+./configure --with-drivers=pn532_uart --enable-serial-autoprobe --prefix=/usr/local/
+sudo make clean all
+sudo make
+sudo make install
 </code></pre>
-<ol start="4">
-<li>After Expression added<br>
-<img src="https://why.yuyeye.cc/post-images/1574350100574.jpg" alt="" loading="lazy"></li>
+<h4 id="on-macos">On MacOS</h4>
+<ol>
+<li>Run in Terminal and press enter key.<pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; &lt; /dev/null 2&gt; /dev/null  
+</code></pre>
+</li>
+<li>Run: <code>brew install libnfc</code></li>
 </ol>
-<h1 id="conclusion">Conclusion</h1>
-<p>If there is no <strong>Strikethrough</strong> on check bytes, it means all expressions are correct.<br>
-Now you know another tips of MTools.</p>
+<h3 id="connection">Connection</h3>
+<p><strong>RFID PN532</strong> in made by MToolsTec is all in one design which will support connection with both Micro-USB and Type-C.<br>
+<img src="https://why.yuyeye.cc/post-images/1612234943039.jpg" alt="" loading="lazy"></p>
+<p style="text-align: center;"> <a href="https://shop.mtoolstec.com/product/mtools-all-in-one-pn532">Learn More | Shop Now</a> </p>  
+<h3 id="command">Command</h3>
+<ol>
+<li>Using <strong>nfc-mfsetuid</strong> to reset uid to 11223344. (UID and SAK byte fixed)</li>
+<li>Using <strong>nfc-mfsetuid F148F784 -f</strong> to reset uid to F148F784 and format all sectors.<br>
+<img src="https://why.yuyeye.cc/post-images/1612233583338.jpg" alt="" loading="lazy"></li>
+</ol>
+<h3 id="on-windows">On Windows</h3>
+<ol>
+<li>Download <strong>MifareOne Tool English.zip</strong>. <a href="https://github.com/xavave/MifareOneTool-English/releases/download/1.8/MifareOneTool.zip">Download Now</a></li>
+<li>Connect <strong>RFID PN532</strong> with USB cable.</li>
+<li>Install the Driver of CH340 USB serial. <a href="http://www.wch.cn/downloads/file/65.html">Download Now</a></li>
+<li>Click on <strong>Reset UID</strong> or <strong>Format UID</strong> button to handle the reset process.<br>
+<img src="https://why.yuyeye.cc/post-images/1612233569821.jpg" alt="" loading="lazy"></li>
+</ol>
 
             </div>
           </article>
@@ -167,9 +171,9 @@ Now you know another tips of MTools.</p>
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card/">
+            <a href="https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-2020/">
               <h3 class="post-title">
-                Can UID be changed on Mifare 1K Card?
+                2020年抓取亚马逊Review新方法-Web Scraper实际应用
               </h3>
             </a>
           </div>
