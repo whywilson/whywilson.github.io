@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How To Fix Magic Mifare Classic Card | W!K!</title>
-<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1612236407202">
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1612247919989">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://why.yuyeye.cc">
-  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1612236407202" alt="">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1612247919989" alt="">
   </a>
   <h1 class="site-title">
     W!K!
@@ -113,16 +113,16 @@
             </div>
             
             <div class="post-content">
-              <p>The Magic Mifare Classic 1K card has not only changeable UID, but also full backer door command surrport. When we write error datas to the magic card cards, they also can be no response or dead. Here's the tutorial to fix the Magic Mifare Classic Card.</p>
+              <p>The Magic Mifare Classic 1K card has not only changeable UID but also full backer door command support. When we write error data to the magic card cards, they also can be no response or dead. Here's the tutorial to fix the Magic Mifare Classic Card.</p>
 <!-- more -->
 <h2 id="when-to-fix-magic-card">When to fix magic card?</h2>
 <ol>
-<li>It was written with invalid SAK byte.<br>
+<li>It was written with an invalid SAK byte.<br>
 The valid SAK bytes are 08, 18, 28.<br>
-If other Hex number is writen to the card, there will be NO response to NFC at all.</li>
-<li>It has invalid access control byte.<br>
+If the other Hex numbers are written to the card, there will be NO response to NFC at all.</li>
+<li>It has an invalid access control byte.<br>
 The default access control byte is <strong>FF078069</strong>.<br>
-The sector with invalid access control byte will be a dead sector.</li>
+The sector with an invalid access control byte will be a dead sector.</li>
 </ol>
 <h2 id="how-to-fix-it">How to fix it?</h2>
 <h3 id="install-libnfc-tool">Install <strong>libnfc</strong> tool</h3>
@@ -146,7 +146,7 @@ sudo make install
 <li>Run: <code>brew install libnfc</code></li>
 </ol>
 <h3 id="connection">Connection</h3>
-<p><strong>RFID PN532</strong> in made by MToolsTec is all in one design which will support connection with both Micro-USB and Type-C.<br>
+<p><strong>RFID PN532</strong> in made by MToolsTec is all in one design that will support connection with both Micro-USB and Type-C.<br>
 <img src="https://why.yuyeye.cc/post-images/1612234943039.jpg" alt="" loading="lazy"></p>
 <p style="text-align: center;"> <a href="https://shop.mtoolstec.com/product/mtools-all-in-one-pn532">Learn More | Shop Now</a> </p>  
 <h3 id="command">Command</h3>
