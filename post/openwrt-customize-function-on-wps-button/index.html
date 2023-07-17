@@ -1,0 +1,206 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OpenWRT自定义按钮的功能 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              OpenWRT自定义按钮的功能
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-03-11 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/shell/" class="post-tag">
+                  # shell
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/openwrt/" class="post-tag">
+                  # OpenWrt
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/DIY/" class="post-tag">
+                  # DIY
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>几乎在所有的无线路由器基本上都有自带一个按钮，简简单单2个作用：<br>
+1.短按WPS连接<br>
+2.长按恢复出厂</p>
+<!-- more -->
+<p><img src="https://i.loli.net/2019/05/10/5cd4727eb61df.jpg" alt="路由器接口" loading="lazy"><br>
+长按恢复出厂只有路由器出现错误，忘记路由器密码时候才会用到。<br>
+<img src="https://i.loli.net/2019/05/10/5cd474928ce93.jpg" alt="路由器接口" loading="lazy"><br>
+而WPS按钮在出现pin能够被爆破的依次得到WiFi密码的漏洞凸显的今天，用到的人更少之又少，比恢复出厂的频次还低。<br>
+所以这样，还不如自定义下这颗按钮的功能。</p>
+<p>先上今天的主角<br>
+<img src="https://i.loli.net/2019/05/10/5cd4728706ab7.jpg" alt="TP-Link WR703N" loading="lazy"></p>
+<pre><code>硬件配置：
+指示灯 x1个；USB口 x1个；网口 x1个
+ROM 16M；RAM 64M
+没错，就是这么高配豪华版滑稽
+运行的是OpenWRT Chaos Calmer，同样自带一颗WPS按钮
+</code></pre>
+<p><img src="https://i.loli.net/2019/05/10/5cd4727e80029.jpg" alt="自带WPS按钮" loading="lazy"><br>
+先登录<br>
+<img src="https://i.loli.net/2019/05/10/5cd47282bc639.jpg" alt="" loading="lazy"><br>
+再看看默认的按钮功能配置文件</p>
+<pre><code>cat /etc/rc.button/reset
+</code></pre>
+<p><img src="https://i.loli.net/2019/05/10/5cd4727eedeb3.jpg" alt="" loading="lazy"><br>
+也就是个if判断，备份一下当前配置</p>
+<pre><code>cp /etc/rc.button/reset /etc/rc.button/reset0
+</code></pre>
+<p>再编辑当前的</p>
+<pre><code>vim /etc/rc.button/reset
+</code></pre>
+<p><img src="https://i.loli.net/2019/05/10/5cd4727f2b309.jpg" alt="" loading="lazy"><br>
+再来编辑两个shell<br>
+这里为了演示，就设置两个功能<br>
+shell_1为点亮LED，shell_2为关闭LED<br>
+<img src="https://i.loli.net/2019/05/10/5cd4727ec214e.jpg" alt="" loading="lazy"><br>
+演示，短按和长按<br>
+<img src="https://i.loli.net/2019/05/10/5cd4728605b64.gif" alt="" loading="lazy"><br>
+成功了，再来优化下shell_1<br>
+<img src="https://i.loli.net/2019/05/10/5cd4727e80029.jpg" alt="" loading="lazy"><br>
+加入的一行命令是利用方糖给微信推送一条消息，标题是 Hello World<br>
+<img src="https://i.loli.net/2019/05/10/5cd473c20ac76.jpg" alt="" loading="lazy"><br>
+再添加个uptime看上线时间<br>
+<img src="https://i.loli.net/2019/05/10/5cd473c2291af.jpg" alt="" loading="lazy"><br>
+收到详情会过滤一些字符<br>
+<img src="https://i.loli.net/2019/05/10/5cd473c1eeee4.jpg" alt="" loading="lazy"><br>
+点开看看<br>
+<img src="https://i.loli.net/2019/05/10/5cd473c226dc3.jpg" alt="" loading="lazy"><br>
+路由器上线57分钟。<br>
+这又有什么用呢，可以发散下思维！<br>
+1.推送当前在线人数，使用流量等等<br>
+2.更换网络配置(例如桥接不同地方的WiFi)<br>
+3.给手机推送下外网IP地址<br>
+4.一键恢复WiFi密码<br>
+5.甚至可以控制拍照(需要外接摄像头)</p>
+<p>多个按钮，路由器玩法就太多了。</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/4-steps-to-clone-access-card/">
+              <h3 class="post-title">
+                4 Steps to clone access card by phone
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

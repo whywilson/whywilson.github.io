@@ -1,0 +1,194 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Can UID be changed on Mifare 1K Card? | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Can UID be changed on Mifare 1K Card?
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-10-13 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/pn532/" class="post-tag">
+                  # PN532
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/acr122u/" class="post-tag">
+                  # ACR122U
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC/" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID/" class="post-tag">
+                  # RFID
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>A lot of guys want to clone their access card, so they buy more mifare 1k card to copy to. But after the package received, what they found is that block 0 of sector 0 can not be modified. The answer is NO to general MIFARE 1K Card.</p>
+<!-- more -->
+<h1 id="main-reason">Main Reason</h1>
+<ul>
+<li>Card Type</li>
+<li>Read/Write Device</li>
+<li>Apps</li>
+</ul>
+<h2 id="choose-uid-changeable-card">Choose UID Changeable Card</h2>
+<ul>
+<li>The UID general MIFARE 1K Card is the first 4 bytes in block 0 of sectors 0 and it cannot be modified after manufactured.</li>
+<li>The 1st generation of UID Changeable Card was named, Chinese Magic Card. Its UID can be changed by external device, such as PN532, ACR122U, PM3 etc. The device need to be worked with nfc-mfsetuid on Linux or <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">RFID Tools</a> on Android.</li>
+<li>The 2nd generation of UID Changeable Card was named CUID Card, the block 0 of sector 0 can be edited like other blocks. It can be modified with interial NFC by <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">MCT</a>, <a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">MTools</a> also <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">RFID Tools</a>.</li>
+</ul>
+<h2 id="choose-an-external-device">Choose An External Device</h2>
+<ul>
+<li>PN532 - The most cost-effective device which is less than $5.</li>
+<li>ACR122U - Full SDK support on Android, Linux and Windows. Same chips as PN532.</li>
+<li>PM3 - Full-encrypted MIFARE CARD craker in minutes while PN532 will take days.</li>
+</ul>
+<h2 id="recommand-rfid-readers-in-2023">Recommand RFID Readers in 2023</h2>
+<ul>
+<li><a href="https://shop.mtoolstec.com/product/mtools-all-in-one-pn532">All-in-one PN532</a> - It has USB and Bluetooth versions. (Start from $19)</li>
+<li><a href="https://shop.mtoolstec.com/product/proxmark3-x">Proxmark3 X</a> - Proxmark3 with Bluetooth and ID cloner extend board. (Appr. $80)</li>
+<li><a href="https://shop.mtoolstec.com/product/icopy-xs">iCopy-XS</a> - Most Portable and Powerful RFID Reader. (Appr. $350)</li>
+</ul>
+<h2 id="choose-a-powerfull-app">Choose A Powerfull App</h2>
+<ul>
+<li>MCT - Can only change UID of the 2st generation of UID Changeable Card.</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.rfidresearchgroup.rfidtools">RFID Tools</a> -  All devices and All UID Changeable Card Support.</li>
+<li><a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> - Reading, writing, analyzing and charging Mfiare Classic card.</li>
+</ul>
+<h1 id="the-best-option">The Best Option</h1>
+<ol>
+<li>Buy a set of <a href="https://shop.mtoolstec.com/product/mtools-all-in-one-pn532">PN532</a> and the <a href="https://shop.mtoolstec.com/product/uid-changeable-1k-s50-chinese-magic-card">Mifare Classic 1K Chinese Magic Card</a>.</li>
+<li>Crack keys of original card with <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">RFID Tools</a>.</li>
+<li>Write datas back to the 1st Chinese Magic Card.</li>
+<li>Test to be done.</li>
+</ol>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/rfid-tools-the-best-rfid-app-on-android-phone/">
+              <h3 class="post-title">
+                RFID Tools - The Best RFID App on Android Phone
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

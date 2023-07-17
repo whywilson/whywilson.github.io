@@ -1,0 +1,384 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to calculate CRC8 &amp; CRC16 in MTools | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              How to calculate CRC8 &amp; CRC16 in MTools
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-05-26 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/MTools/" class="post-tag">
+                  # MTools
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/android/" class="post-tag">
+                  # Android
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC/" class="post-tag">
+                  # NFC
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>CRC - Cyclic Redundancy Check is widely used in data transition. According to <code>wikipedia.org</code>, A CRC-enabled device calculates a short, fixed-length binary sequence, known as the check value or CRC, for each block of data to be sent or stored and appends it to the data, forming a codeword.</p>
+<!-- more -->
+<pre><code>When a codeword is received or read, the device either compares its check value with one freshly calculated from the data block, or equivalently, performs a CRC on the whole codeword and compares the resulting check value with an expected residue constant.  
+If the CRC values do not match, then the block contains a data error.
+</code></pre>
+<p>It's really hard to calculate CRC value by hand, so I add CRC8 &amp; CRC16 algorithm in <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a>.<br>
+And this can really save your time to get the CRC values by one expression.<br>
+<strong>Notice: This is the feature for full version.</strong></p>
+<hr>
+<h2 id="byte-values">Byte values</h2>
+<p>There exist 16 bytes on each block of the mifare 1k card.<br>
+And you can use <code>b0</code> <code>b1</code> <code>b2</code> ... <code>b14</code> <code>b15</code> for caculation.</p>
+<h2 id="crc8">CRC8</h2>
+<p>The value of CRC8 result is only 1 byte.<br>
+Supported CRC8 algorithm in MTools .</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Expression</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRC-8</td>
+<td>crc8(<strong>0,1,5,8</strong>)</td>
+<td>CRC8 of HEX String of <code>b0</code> <code>b1</code> <code>b5</code> <code>b8</code></td>
+</tr>
+<tr>
+<td>CRC-8/CDMA2000</td>
+<td>crc8cdma2000(<strong>0:14</strong>)</td>
+<td>CRC8-/CDMA2000 of <code>b0</code> to <code>b14</code></td>
+</tr>
+<tr>
+<td>CRC-8/DARC</td>
+<td>crc8darc(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/DVB-S2</td>
+<td>crc8dvs2(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/EBU</td>
+<td>crc8eu(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/I-CODE</td>
+<td>crc8icode(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/ITU</td>
+<td>crc8itu(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/MAXIM</td>
+<td>crc8maxim(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/ROHC</td>
+<td>crc8rohc(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+<tr>
+<td>CRC-8/WCDMA</td>
+<td>crc8wcdma(<strong>0:14</strong>)</td>
+<td>idem</td>
+</tr>
+</tbody>
+</table>
+<h1 id="crc16">CRC16</h1>
+<p>The value of CRC16 contains 2 bytes.<br>
+To get these two seperately, <code>0</code> or <code>1</code> need to be added after the expression.<br>
+Supported CRC16 algorithm in MTools.</p>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Expression 0</th>
+<th>Expression 1</th>
+<th style="text-align:left">Xor Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRC-16/CCITT-FALSE</td>
+<td>crc16ccittfalse(0:14)0</td>
+<td>crc16ccittfalse(0:14)1</td>
+<td style="text-align:left">crc16ccittfalse(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/ARC</td>
+<td>crc16arc(0:14)0</td>
+<td>crc16arc(0:14)1</td>
+<td style="text-align:left">crc16arc(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/AUG-CCITT</td>
+<td>crc16augccitt(0:14)0</td>
+<td>crc16augccitt(0:14)1</td>
+<td style="text-align:left">crc16augccitt(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/BUYPASS</td>
+<td>crc16buypass(0:14)0</td>
+<td>crc16buypass(0:14)1</td>
+<td style="text-align:left">crc16buypass(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/CDMA2000</td>
+<td>crc16cdma2000(0:14)0</td>
+<td>crc16cdma2000(0:14)1</td>
+<td style="text-align:left">crc16cdma2000(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/DDS-110</td>
+<td>crc16dds110(0:14)0</td>
+<td>crc16dds110(0:14)1</td>
+<td style="text-align:left">crc16dds110(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/DECT-R</td>
+<td>crc16dectr(0:14)0</td>
+<td>crc16dectr(0:14)1</td>
+<td style="text-align:left">crc16dectr(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/DECT-X</td>
+<td>crc16dectx(0:14)0</td>
+<td>crc16dectx(0:14)1</td>
+<td style="text-align:left">crc16dectx(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/DNP</td>
+<td>crc16dnp(0:14)0</td>
+<td>crc16dnp(0:14)1</td>
+<td style="text-align:left">crc16dnp(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/EN-13757</td>
+<td>crc16en13757(0:14)0</td>
+<td>crc16en13757(0:14)1</td>
+<td style="text-align:left">crc16en13757(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/GENIBUS</td>
+<td>crc16genibus(0:14)0</td>
+<td>crc16genibus(0:14)1</td>
+<td style="text-align:left">crc16genibus(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/MAXIM</td>
+<td>crc16maxim(0:14)0</td>
+<td>crc16maxim(0:14)1</td>
+<td style="text-align:left">crc16maxim(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/MCRF4XX</td>
+<td>crc16mcrf4xx(0:14)0</td>
+<td>crc16mcrf4xx(0:14)1</td>
+<td style="text-align:left">crc16mcrf4xx(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/RIELLO</td>
+<td>crc16riello(0:14)0</td>
+<td>crc16riello(0:14)1</td>
+<td style="text-align:left">crc16riello(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/T10-DIF</td>
+<td>crc16t10dif(0:14)0</td>
+<td>crc16t10dif(0:14)1</td>
+<td style="text-align:left">crc16t10dif(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/TELEDISK</td>
+<td>crc16teledisk(0:14)0</td>
+<td>crc16teledisk(0:14)1</td>
+<td style="text-align:left">crc16teledisk(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/TMS37157</td>
+<td>crc16tms37157(0:14)0</td>
+<td>crc16tms37157(0:14)1</td>
+<td style="text-align:left">crc16tms37157(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/USB</td>
+<td>crc16usb(0:14)0</td>
+<td>crc16usb(0:14)1</td>
+<td style="text-align:left">crc16usb(0:14)</td>
+</tr>
+<tr>
+<td>CRC-A</td>
+<td>crc16a(0:14)0</td>
+<td>crc16a(0:14)1</td>
+<td style="text-align:left">crc16a(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/KERMIT</td>
+<td>crc16kermit(0:14)0</td>
+<td>crc16kermit(0:14)1</td>
+<td style="text-align:left">crc16kermit(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/MODBUS</td>
+<td>crc16modbus(0:14)0</td>
+<td>crc16modbus(0:14)1</td>
+<td style="text-align:left">crc16modbus(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/X-25</td>
+<td>crc16x25(0:14)0</td>
+<td>crc16x25(0:14)1</td>
+<td style="text-align:left">crc16x25(0:14)</td>
+</tr>
+<tr>
+<td>CRC-16/XMODEM</td>
+<td>crc16xmodem(0:14)0</td>
+<td>crc16xmodem(0:14)1</td>
+<td style="text-align:left">crc16xmodem(0:14)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="works-in-msniffer">Works in mSniffer</h2>
+<p>The exprssion of last byte <code>b15</code> is <code>crc8</code>, and the results are calculated correctly in a second.<br>
+<img src="https://why.yuyeye.cc/post-images/1559024659102.png" alt="" loading="lazy"></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/python-data-processing-deduplication/">
+              <h3 class="post-title">
+                Python 数据处理之字段去重
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

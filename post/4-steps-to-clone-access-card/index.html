@@ -1,0 +1,205 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>4 Steps to clone access card by phone | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              4 Steps to clone access card by phone
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-01-01 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/acr122u/" class="post-tag">
+                  # ACR122U
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/android/" class="post-tag">
+                  # Android
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC/" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID/" class="post-tag">
+                  # RFID
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/Hacker/" class="post-tag">
+                  # Hacker
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>Many people are curious on how to clone access card for convinience or just for fun. Most access system with RFID verify visitors with UID in the access card. It's the first 4 bytes hex data of Block 0 in Sector 0.<br>
+Follow the steps bellow to clone an access card.</p>
+<!-- more -->
+<ol>
+<li>Prepare the UID changeable card.</li>
+</ol>
+<ul>
+<li>The first generation of UID changeable card, which called Chinese magic card, can be writed with external device, (i.e., <a href="https://shop.mtoolstec.com/product/mtools-all-in-one-pn532">PN53X</a>, ACR122U and <a href="https://shop.mtoolstec.com/product/proxmark3-x">PM3</a>, <a href="https://shop.mtoolstec.com/product/icopy-xs">iCopy-XS</a>).</li>
+<li>The second generaltion of UID Change is called <strong>CUID</strong> card which can be easily writen on Android phone.<br>
+<img src="https://why.yuyeye.cc/post-images/1558252362969.png" alt="" loading="lazy"><br>
+<a href="https://shop.mtoolstec.com/product-category/card">View all kinds of Magic cards here</a></li>
+</ul>
+<ol>
+<li>Install <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> or <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">Mifare Classic Tool</a> on the phone.<br>
+<strong>MCT</strong> is a powerfull app to read and write data to mifare 1k card.<br>
+With <strong>MTools</strong>, you can even read and write data that under some rules, e.g., the valid money data.</li>
+<li>Read default data of Sector 0 of original card.<br>
+Usually, the default keys for card's sector 0 is <code>FF FF FF FF FF</code></li>
+</ol>
+<ul>
+<li>By MIFARE Classic Tool:
+<ul>
+<li>READ TAG</li>
+<li>Choose <code>std.keys</code></li>
+<li>Click <code>START MAPPING AND READ TAG</code><br>
+<img src="https://why.yuyeye.cc/post-images/1558252072596.png" alt="" loading="lazy"></li>
+</ul>
+</li>
+<li>By MTools:
+<ul>
+<li>Add Card</li>
+<li>Add Sector 0, keyA and keyB</li>
+<li>Click Read Sector Button<br>
+<img src="https://why.yuyeye.cc/post-images/1558252038269.png" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<ol start="4">
+<li>Write data of Sector 0 to target UID changeable card.</li>
+</ol>
+<h2 id="partical-encrypted">Partical Encrypted</h2>
+<p>If you cannot get full sectors data with default key <code>FFFFFFFFFFFF</code>, then you have to crack the keys with the external reader, such as PN532, Proxmark3 X or iCopy-XS device.</p>
+<iframe width="1038" height="584" src="https://www.youtube.com/embed/GZbA_uR3suc" title="Crack Keys of Mifare Card with mfoc on Android Linux macOS Windows" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<h2 id="full-encrypted">Full Encrypted</h2>
+<p>To those cards are no default keys found, the <code>mfcuk</code> tools is used to hardnested attacking and restore one keys. Then it will use the <code>mfoc</code> tools to restore the rest keys of sectors.<br>
+If the card does not support hardnested, then you have to use <a href="https://shop.mtoolstec.com/product/chameleon-mini-rev-e-rdv-2-0-2022">Chameleon Mini</a>, Chameleon Tiny(Discontinued) or <a href="https://shop.mtoolstec.com/product/chameleon-ultra">Chameleon Ultra</a> to sniff the keys, then restore data in all sectors.</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-use-nfc-as-a-mifare-card-reader-charge/">
+              <h3 class="post-title">
+                How to use NFC as a mifare card reader - Charge
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

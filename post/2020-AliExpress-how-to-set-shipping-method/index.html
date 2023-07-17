@@ -1,0 +1,237 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2020年速卖通如何抓取同行运费模板 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              2020年速卖通如何抓取同行运费模板
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2020-01-02 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/LT5YNu80x/" class="post-tag">
+                  # AliExpress
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/6144RNpaXv/" class="post-tag">
+                  # 速卖通
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/Python/" class="post-tag">
+                  # Python
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>很多上手速卖通的大小买家都苦于设置运费模板，收取用户过多过少都会影响店铺的销售和运费的支出，本文种将采用<strong>Python</strong>代码的方式抓取优秀同行的运费设置，同事为客户与卖家节省成本。</p>
+<!-- more -->
+<h1 id="软件工具">软件工具</h1>
+<ul>
+<li>Chrome 浏览器 (浏览器标配)</li>
+<li>Visual Studio Code (最佳编程工具)</li>
+<li>Python (主要程序，需要安装<strong>requests</strong>包，安装命令 pip install requests)</li>
+</ul>
+<h1 id="运费查询链接分析">运费查询链接分析</h1>
+<ol>
+<li>打开Chrome浏览器，在<a href="https://www.aliexpress.com">速卖通</a>按订单降序排序搜索<code>iPhone X case</code>，最高有134453单，不论是否刷单了，就拿他下手参考设置运费模板。<br>
+<img src="https://why.yuyeye.cc/post-images/1577974712845.jpg" alt="" loading="lazy"></li>
+<li><code>右键</code> <code>检查</code>或直接快捷键<code>Ctrl+Shift+i [windows]</code>，<code>Cmd+Shift+i [mac]</code>，选择到Network选项卡，清理下记录。<br>
+<img src="https://why.yuyeye.cc/post-images/1577975147953.jpg" alt="" loading="lazy"></li>
+<li>点击页面运费选项，选择一个国家，例如英国 United Kingdom，Network会出现当前运费查询请求，点击到Query String Parameters查看当前请求的参数。<br>
+<img src="https://why.yuyeye.cc/post-images/1577975625810.jpg" alt="" loading="lazy"></li>
+<li>分析请求中的三个参数为影响运费的主要因素</li>
+</ol>
+<pre><code>minPrice: 0.01
+maxPrice: 0.01
+country: UK
+</code></pre>
+<p>返回参数<br>
+<img src="https://why.yuyeye.cc/post-images/1577976022018.jpg" alt="" loading="lazy"><br>
+5. <code>右键</code> <code>Copy</code> <code>Copy as cURL</code><br>
+<img src="https://why.yuyeye.cc/post-images/1578015780667.jpg" alt="" loading="lazy"><br>
+打开<a href="https://curl.trillworks.com/">https://curl.trillworks.com/</a>将curl代码转换成Python代码，全部复制后在VS Code新建文件并保存为<code>get-shipping-method.py</code>文件，文件末追加</p>
+<pre><code>print response.text
+</code></pre>
+<ol start="6">
+<li>在命令行窗口Terminal内执行代码<pre><code>python get-shipping-method.py
+</code></pre>
+即可输出运费模板接口获取到的json数据<br>
+<img src="https://why.yuyeye.cc/post-images/1577976924346.jpg" alt="" loading="lazy"></li>
+</ol>
+<h1 id="查询当前国家所有的运费方式">查询当前国家所有的运费方式</h1>
+<pre><code>try:
+       # print response.text
+        body = json.loads(response.text)
+        shipping_method.append({})
+        freightResult = body['body']['freightResult']
+
+        for j in range(len(freightResult)):
+            print freightResult[j]['company']+&quot;,&quot;+str(freightResult[j]['freightAmount']['value'])+&quot;,&quot;,
+            shipping_method[i].setdefault(freightResult[j]['company'], freightResult[j]['freightAmount']['value'])
+            if(freightResult[j]['company'] not in all_carrier):
+                all_carrier.append(freightResult[j]['company'])
+                # show carrier and value
+        print &quot;&quot;
+        count = count + 1
+except Exception, e:
+        error_country_code.append(country_code[i])
+        print &quot; Error &quot; + str(e)
+        continue
+    time.sleep(0.2)
+</code></pre>
+<p>再次运行得到结果</p>
+<pre><code>UK, AliExpress Standard Shipping,0.0, Special Line-YW,0.72, China Post Registered Air Mail,0.76, ePacket,1.93, EMS,26.32, DHL,26.32, Fedex IE,60
+</code></pre>
+<h2 id="查询得到所有国家代码的缩写">查询得到所有国家代码的缩写</h2>
+<pre><code>AD AE AF AG AI AL ALA AM AN AO AQ AR AS ASC AT AU AW AZ 
+BA BB BD BE BF BG BH BI BJ BLM BM BN BO BQ BR BS BT BV BW BY BZ 
+CA CA CC CF CG CH CI CK CL CL CM CO CR CV CW CX CY CZ 
+DE DJ DK DM DO DZ EAZ EC EE EG EH ER ES ES ET FI FJ FK FM FO FR FR 
+GA GBA GD GE GF GGY GH GI GL GM GN GP GQ GR GT GU GW GY 
+HK HM HN HR HT HU IC ID IE IL IM IN IO IQ IS IT JEY JM JO JP 
+KE KG KH KI KM KN KR KS KW KY KZ LA LB LC LI LK LR LS LT LU LV LY 
+MA MAF MC MD MG MH MK ML MM MN MNE MO MP MQ MR MS MT MU MV MW MX MY MZ 
+NA NC NE NF NG NI NL NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PL PM 
+PN PR PS PT PW PY QA RE RO RU RW SA SB SC SE SG SGS SH SI SJ SK SL 
+SM SN SO SR SRB SS ST SV SX SZ TC TD TF TG TH TJ TK TLS TM TN TO TR 
+TT TV TW TZ UA UA UG UK UK UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZR ZW  
+</code></pre>
+<h2 id="通过循环抓取所有国家的运费模板">通过循环抓取所有国家的运费模板</h2>
+<ul>
+<li>注意每次抓取过程种的 <code>time.sleep(0.2)</code>，避免抓取过去频繁，cookie过期被封</li>
+<li>增加 <code>error_country_code</code>数组，当抓取出错时记录并跳过当前国家</li>
+<li>注意不同国家会有不同物流选择，新增<code>all_carrier</code>数组记录所有的物流方式</li>
+<li>抓取结束后讲保存到产品ID的csv文件中</li>
+</ul>
+<h2 id="最终得到运费模板">最终得到运费模板</h2>
+<p><img src="https://why.yuyeye.cc/post-images/1577979230185.jpg" alt="" loading="lazy"><br>
+再在Excel中对相同物流方式进行对比处理即可</p>
+<h2 id="github-代码共享">Github 代码共享</h2>
+<p><a href="https://github.com/whywilson/AliExpress">View source code on Github</a></p>
+<p><strong>注意：请勿非法抓取数据，本文仅供设置运费模板起到参考作用</strong></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-use-sniffer-in-mtools/">
+              <h3 class="post-title">
+                How to use Sniffer in MTools
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

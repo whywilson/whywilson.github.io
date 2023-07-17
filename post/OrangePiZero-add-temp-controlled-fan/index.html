@@ -1,0 +1,269 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OrangePiZero加装温控风扇 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              OrangePiZero加装温控风扇
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-04-30 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/DIY/" class="post-tag">
+                  # DIY
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/Hacker/" class="post-tag">
+                  # Hacker
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h3 id="写在前面">写在前面</h3>
+<p>刚入国产派的时候，一早醒来，CPU温度都是50º起的<br>
+这还是<s>春天</s>乱穿衣服的季节，到了夏天会不会炸机真不好说</p>
+<!-- more -->
+<p><img src="https://i.loli.net/2019/04/16/5cb52e810d92f.jpg" alt="Temperature.jpg" loading="lazy"><br>
+于是乎，捣鼓了一番，加装了散热风扇，利用了板载的一个USB口，一个GPIO口。<br>
+先看看最后成品图<br>
+<img src="https://ooo.0o0.ooo/2017/04/27/5901f9e410a3c.jpg" alt="Top_view.jpg" loading="lazy"></p>
+<hr>
+<h3 id="思路">思路</h3>
+<p>为了避免风扇在一个温度值时不断跳跃，决定采用如下控制思路</p>
+<blockquote>
+<p>风扇未运转时</p>
+<blockquote>
+<p>Temp &gt; 45℃ 风扇ON</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>风扇运转时</p>
+<blockquote>
+<p>Temp &lt; 40℃ 风扇OFF</p>
+</blockquote>
+</blockquote>
+<hr>
+<h3 id="系统配置">系统配置</h3>
+<p>Orange Pi Zero 运行着 <code>Armbian</code>的5.27的夜版，内核为<code>3.4.113-sun8i</code><br>
+虽然最新<code>4.10.0-sun8i</code>支持谷歌BBR黑科技，并且温度可以精确到0.01℃<br>
+但是在这板子上还有诸多毛病：</p>
+<ul>
+<li>红外无法接收</li>
+<li>红色LED无法驱动</li>
+<li>开机自检很慢</li>
+<li>……</li>
+</ul>
+<p>求稳，还是用3.4内核</p>
+<p><a href="https://www.armbian.com/orange-pi-zero/">Armbian官网</a> 固件下载<br>
+控制风扇运停转需要使用GPIO，橙子派上也有已经移植过来的wiringOP，事先需要构建下<br>
+<a href="https://github.com/xpertsavenue/WiringOP-Zero">GitHub传送门</a><br>
+<img src="https://ooo.0o0.ooo/2017/04/27/5902054b5d39d.png" alt="gpio.png" loading="lazy"></p>
+<hr>
+<h3 id="实现">实现</h3>
+<h4 id="软件部分">软件部分</h4>
+<p>主函数部分  <code>由每秒CPU温度判断是否改变引脚的电位</code><br>
+getTemp()函数  <code>通过文件读取并返回CPU温度</code></p>
+<pre><code>#include&lt;wiringPi.h&gt;  
+#include &lt;stdio.h&gt;  
+#include &lt;fcntl.h&gt;  
+
+#define TEMP_PATH &quot;/sys/class/thermal/thermal_zone0/temp&quot;  
+#define MAX_SIZE 32  
+int main(void)   
+{ 
+	wiringPiSetup () ;
+	pinMode (11, OUTPUT) ;
+	int status = 0;
+	while (1)
+	{
+		int temp = getTemp();
+		if(status == 1 &amp;&amp; temp &lt; 40)
+		{
+			digitalWrite (11, LOW);
+			status = 0;
+			print(&quot;Turn OFF&quot;);
+		}
+		if(status == 0 &amp;&amp; temp &gt; 45)
+		{
+			digitalWrite (11, HIGH);
+			status = 1;
+			print(&quot;Turn ON&quot;);
+		}
+		delay(1000);
+		printf(&quot;TEMP: %d℃\\n&quot;,temp);
+	}
+	return 0 ;
+} 
+
+int getTemp()
+{
+	int fd;  
+	double temp = 0;  
+	char buf[MAX_SIZE];  
+
+	fd = open(TEMP_PATH, O_RDONLY);  
+	if (fd &lt; 0) {  
+		fprintf(stderr, &quot;failed to open thermal_zone0/temp\n&quot;);  
+		return -1;  
+	}  
+
+	if (read(fd, buf, MAX_SIZE) &lt; 0) {  
+		fprintf(stderr, &quot;failed to read temp\n&quot;);  
+		return -1;  
+	}  
+
+	temp = atoi(buf);
+	close(fd);
+
+	return temp;
+}
+</code></pre>
+<h5 id="编译运行">编译&amp;运行</h5>
+<pre><code>gcc -o temp temp.c -lwiringPi &amp;&amp; ./temp
+</code></pre>
+<h4 id="硬件部分">硬件部分</h4>
+<p>橙子派GPIO口的最大输出电流也没有资料查阅，估摸着差不多也是 <code>20mA</code> ，因此需要直接USB 5V供电</p>
+<h5 id="材料">材料</h5>
+<ul>
+<li><code>5v0.15A风扇</code> <code>S8050三极管</code> <code>330Ω电阻</code></li>
+<li><code>杜邦线</code>  <code>USB公头线</code>  <code>热缩管</code></li>
+</ul>
+<h5 id="电路图">电路图</h5>
+<p><img src="https://ooo.0o0.ooo/2017/04/29/5903badad40e9.png" alt="Fan.png" loading="lazy"><br>
+采用了个小开关是因为手头只有12V的风扇，直接5V驱动太弱，所以这样可以实现强制开启散热</p>
+<h3 id="运行效果">运行效果</h3>
+<h4 id="不服跑个分">不服跑个分</h4>
+<p>计算4000位圆周率</p>
+<pre><code>time echo &quot;scale=4000;4*a(1)&quot;|bc -l -q
+</code></pre>
+<h4 id="温度变化">温度变化</h4>
+<figure data-type="image" tabindex="1"><img src="https://ooo.0o0.ooo/2017/04/27/5902033b2eeb7.png" alt="armbianmonitor.png" loading="lazy"></figure>
+<h3 id="写在最后">写在最后</h3>
+<p>一次简单的软硬件配合，散热效果还算满意，最后加上 <code>开机自启</code>，估摸可以平安度过酷暑。<br>
+<img src="https://ooo.0o0.ooo/2017/04/27/5901f9e3c13f4.jpg" alt="Bottom_view.jpg" loading="lazy"></p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/decrypt-a-encryted-md5-data/">
+              <h3 class="post-title">
+                记一次对md5密文的解密
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

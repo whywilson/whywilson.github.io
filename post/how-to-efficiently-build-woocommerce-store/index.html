@@ -1,0 +1,255 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WooCommerce 自建高效商城搭建方案 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              WooCommerce 自建高效商城搭建方案
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2022-05-17 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/J7umvaYrR/" class="post-tag">
+                  # WordPress
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/TEohhCvb6/" class="post-tag">
+                  # WooCommerce
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/W-p_J3rh3C/" class="post-tag">
+                  # ERP
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/hXUHLmAegr/" class="post-tag">
+                  # PayPal
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h2 id="服务器选择">服务器选择</h2>
+<p>硬件：<a href="https://www.vultr.com/?ref=7136930">Vultr 洛杉矶</a> 2C4G内存  ($24/月)<br>
+控制：<a href="https://lnmp.org/">lnmp</a> 或 <a href="https://www.bt.cn/new/index.html">宝塔面板</a></p>
+<h2 id="店铺搭建">店铺搭建</h2>
+<h3 id="主题-flatsome-59">主题 <a href="https://flatsome3.uxthemes.com/">Flatsome</a> ($59)</h3>
+<p>Flatsome 在 Themeforest 卖主题，有时有节日折扣，可以关注下官方的 <a href="https://www.facebook.com/groups/flatsome">Facebook 群组</a>。</p>
+<h3 id="flatsome主题自带功能">Flatsome主题自带功能</h3>
+<ol>
+<li>UX Builder 全站定制</li>
+<li>多属性产品 Swatches</li>
+<li>浮动弹窗 Lightbox</li>
+<li>UX Block 产品页定制</li>
+<li>Catalog 模式不展示价格</li>
+<li>维护模式，404页面等等</li>
+<li>持续的更新</li>
+</ol>
+<h2 id="erp-系统">ERP 系统</h2>
+<ol>
+<li><a href="https://www.dianxiaomi.com">店小秘</a> (免费，仅支持订单处理)</li>
+<li><a href="https://shop.mtoolstec.com/product/woocommerce-plugin-add-tracking-info-to-paypal">物流信息自动同步PayPal</a> ($9.99)<br>
+2.1 可以实现在ERP内点击发货，自动同步物流单号到PayPal<br>
+2.2 修复了店小秘的邮件模版中物流商信息丢失问题</li>
+<li><a href="https://www.banmaerp.com/?channel=3MK2T3">斑马ERP</a> (付费, 支持订单处理，刊登产品，同步物流)</li>
+</ol>
+<h2 id="邮件服务">邮件服务</h2>
+<ol>
+<li><a href="https://admin.google.com/">Google Workspace 基础版</a> ($6/月)<br>
+1.1 域名邮箱服务<br>
+1.2 Google所有相关产品，例如 Drive，Calendar，Keep 等</li>
+<li><a href="https://wordpress.org/plugins/wp-mail-smtp/">邮件服务 WP Mail SMTP</a> (免费)</li>
+<li><a href="https://wordpress.org/plugins/kadence-woocommerce-email-designer/">邮件模版 Kadence WooCommerce Email Designer</a> (免费)<br>
+可以定制新订单，发货通知，订单完成，添加Note等邮件的模版样式</li>
+</ol>
+<h2 id="营销服务">营销服务</h2>
+<ol>
+<li><a href="https://woocommerce.com/">Abandoned Cart Recovery</a> ($59)</li>
+<li><a href="https://wordpress.org/plugins/cf7-mailchimp/">Mailchimp</a> (&lt;2000 Contacts 免费)</li>
+</ol>
+<h2 id="产品相关">产品相关</h2>
+<ol>
+<li>License Manager (免费)</li>
+<li><a href="https://wordpress.org/plugins/autocomplete-woocommerce-orders/">Auto Complete Order</a> (免费)</li>
+<li><a href="https://wordpress.org/plugins/customer-reviews-woocommerce/">Customer Reviews for WooCommerce</a> (免费)<br>
+3.1 免费生成所有 Review的集合<br>
+3.2 自动生成 Google Feeds 的 xml 文件</li>
+</ol>
+<h2 id="支付网关">支付网关</h2>
+<ol>
+<li><a href="https://wordpress.org/plugins/woocommerce-gateway-paypal-express-checkout/">WooCommerce PayPal Checkout Gateway</a> (免费)<br>
+优点：个人账号可以开启 PayPal Checkout<br>
+缺点：WooCommerce 官方为了推广 <strong>WooCommerce Payment</strong> 已停止更新</li>
+</ol>
+<h2 id="联系表单">联系表单</h2>
+<ol>
+<li>
+<p>Contact Form 7 (免费)<br>
+<img src="https://ps.w.org/contact-form-7/assets/banner-772x250.png?rev=880427" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>人机验证 hCaptcha (免费)<br>
+<img src="https://ps.w.org/hcaptcha-for-forms-and-more/assets/banner-772x250.jpg?rev=2500496" alt="" loading="lazy"></p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/contact-form-7-mailchimp-extension/">Contact Form 7 Extension For Mailchimp</a> (免费)<br>
+<img src="https://ps.w.org/contact-form-7-mailchimp-extension/assets/banner-772x250.png?rev=1625715" alt="" loading="lazy"></p>
+</li>
+</ol>
+<h2 id="网站加速">网站加速</h2>
+<ol>
+<li>
+<p><a href="https://wp-rocket.me/pricing/">WP Rocket</a> ($49/年)<br>
+<img src="https://v3b4d4f5.rocketcdn.me/wp-content/themes/V4/assets/images/homepage-hero-banner.svg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p><a href="https://bunny.net?ref=w8ps7nicxj">Bunny CDN</a> (优惠券白嫖$5.00，可以用很久)<br>
+<img src="https://bunny.net/v2/images/homepage/landing-background.jpg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/redis-cache/">Redis Object Cache</a> (免费)<br>
+<img src="https://ps.w.org/redis-cache/assets/banner-772x250.png?rev=2315420" alt="" loading="lazy"></p>
+</li>
+<li>
+<p><a href="https://wordpress.org/plugins/ewww-image-optimizer/">EWWW Image Optimizer</a> (免费)<br>
+免费版可以使用服务器算力优化图片，付费版使用 EWWW 的服务器优化的。<br>
+<img src="https://ps.w.org/ewww-image-optimizer/assets/banner-772x250.jpg?rev=1582276" alt="" loading="lazy"></p>
+</li>
+</ol>
+<h2 id="手机-app">手机 App</h2>
+<ol>
+<li>
+<p><a href="https://woocat.app">WooCat</a> (完整功能 $9.99，支持多店铺)<br>
+<img src="https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/4c/42/28/4c4228a1-432f-42fb-e21f-2c7e7d9310bf/0b451607-6175-4691-a6e4-105b919c252e_Report.jpg/1286x0w.webp" alt="" loading="lazy"></p>
+</li>
+<li>
+<p><a href="https://woocommerce.com/mobile/">WooCommerce</a> (免费，需要安装 <a href="https://woocommerce.com/products/jetpack">JetPack</a> 插件，需要翻墙使用)<br>
+<img src="https://woocommerce.com/wp-content/uploads/2020/12/intro-devices-desktop@2x-2.png" alt="" loading="lazy"></p>
+</li>
+</ol>
+<h2 id="机场推荐">机场推荐</h2>
+<p>目前使用了1年多的 <a href="https://speedcat-aff.com/auth/register?code=cWEN">SpeedCat</a>，搭配 ClashX for Windows 和 clashX Pro 在电脑端无阻使用，手机端使用 Clash 和 ShadowRoeckte，比较省心，推荐半年或一年付费，平均不到 ￥20/月，不是最便宜的，但是经过多个对比使用，稳定性很好，可以自动规则代理 ChatGPT。</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/introduction-of-woocat-multi-store-sales-report-client-of-woocommerce/">
+              <h3 class="post-title">
+                Introduction of WooCat - Multi-Store Sales Report Client of WooCommerce
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

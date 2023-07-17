@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用 OpenAI 生成 WooCommerce 产品 Review | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              使用 OpenAI 生成 WooCommerce 产品 Review
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2023-07-16 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/NxaFWQDvt/" class="post-tag">
+                  # OpenAI
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/HTR9RM63hb/" class="post-tag">
+                  # ChatGPT
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/J7umvaYrR/" class="post-tag">
+                  # WordPress
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/TEohhCvb6/" class="post-tag">
+                  # WooCommerce
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>WooCommerce 的产品 Review 是客户主动在产品页留下评价，或在收到货物后对产品信息留下评论。客户留下的 Review 对于店铺来说，可以让客户更加了解产品信息，提升店铺品牌形象。我们有必要为店铺增加足够的 Review 以增加客户或订单的转化率。在本篇博客中，您可以通过 OpenAI 为产品生成无限的真实可信、贴近产品、提升形象的 Review。</p>
+<!-- more -->
+<p>OpenAI Tools for WordPress 插件的原理是调用 OpenAI 的 Chat 接口，根据用户提供的关键信息，可以生成不同语言、数量和星级的 Review 信息，包含评论人名、主题、具体内容和日期。</p>
+<h2 id="如何安装-openai-tools-for-wordpress">🌐如何安装 OpenAI Tools for WordPress</h2>
+<ol>
+<li>在 WordPress 站点后台 <code>Plugins &gt; Add New &gt;</code> 搜索 <code>OpenAI Tools for WordPress</code> ，并安装插件，插件的作者是 <strong>MTools Tec</strong>.</li>
+<li>安装并激活插件。</li>
+</ol>
+<h2 id="如何获取-openai-key">🔑如何获取 OpenAI Key</h2>
+<ol>
+<li>若您有自己的 OpenAI 账号，且 API Key 可用（免费适用阶段内或付费用户），可以自行创建 API KEY以供 OpenAI Tools for WordPress 插件使用。</li>
+<li>若您没有有效的 OpenAI API Key，我推荐您使用 <a href="http://f2api.com/r/8491">F2API网站</a> 提供的付费接口服务，它支持支付宝、微信付费，token的费用与OpenAI平台的相当。使用 GPT-3.5-Turbo 模型生成10条 Review 的费用大概是 1毛钱。</li>
+</ol>
+<h2 id="️添加-openai-api-key">✍️添加 OpenAI API Key</h2>
+<p>将 OpenAPI API Key 添加至 <code>Settings &gt; OpenAI</code> 并提交保存，同时您可以在档期页面看到 API Key 的余额。<img src="https://why.yuyeye.cc/post-images/1689565535959.jpg" alt="" loading="lazy"></p>
+<h2 id="生成产品-review">🤖生成产品 Review</h2>
+<p>进入产品编辑页面，展开 <strong>OpenAI Reviewer</strong> 的 Meta Box, 如果未找到，则在顶部的 <strong>Screen Options</strong>中启用 OpenAI Reviewer 即可。<br>
+生成 Review 前需要提交的信息有：</p>
+<ol>
+<li>Review 数量</li>
+<li>开始日期与结束日期</li>
+<li>平均星级</li>
+<li>Review主题</li>
+<li>语言<br>
+点击 <a style=" background: #04a4cc; border-color: #04a4cc; color: #fff; padding: 6px 10px; border-radius: 3px; ">Submit</a>，等待片刻即可生成相应数量的 Review。<img src="https://why.yuyeye.cc/post-images/1689565606360.jpg" alt="" loading="lazy"></li>
+</ol>
+<h2 id="添加-review-到产品">🏭添加 Review 到产品</h2>
+<p>生成的 Review 信息是可以编辑，例如姓名、星级、日期、评价详情，勾选复选框后，点击底部的 Add Reviews 即可将 Review 添加到产品页面。至此您可以进去产品前台刷新页面查看 Review信息。<img src="https://why.yuyeye.cc/post-images/1689565666271.jpg" alt="" loading="lazy"></p>
+<h2 id="支持我的作品">👍支持我的作品</h2>
+<p>您可以通过链接购买捐赠 OpenAI Tools for WordPress 插件($19.99)，<a href="https://shop.mtoolstec.com/product/openai-tools-for-woocommerce-product-review-generator">捐赠链接</a>.<br>
+您可以通过 <a href="http://f2api.com/r/8491">我的F2API注册链接</a>，我可以获得获得被推荐用户注册 48 小时内所有充值金额的 10% 奖励。</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-generate-images-with-dalle-2-and-stable-diffusion-for-free/">
+              <h3 class="post-title">
+                如何免费使用 Dalle-2 与 Stable Diffusion 生成图片
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

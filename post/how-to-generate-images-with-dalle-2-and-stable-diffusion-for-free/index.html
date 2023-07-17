@@ -1,0 +1,182 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何免费使用 Dalle-2 与 Stable Diffusion 生成图片 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              如何免费使用 Dalle-2 与 Stable Diffusion 生成图片
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2023-03-27 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/I9SCIqxLF/" class="post-tag">
+                  # Bunny
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/Y9zs1F2yXO/" class="post-tag">
+                  # AI 作图
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>近期比较火热的 AI 图像生成工具有 Midjourney, Dalle-2 和 Stable Diffusion。Dalle-2 适用于创造了更逼真的图像，而 MidJourney 则更多地关注不同的艺术风格。Dalle-2 一种人工智能 (AI) 系统，可以根据自然语言的描述创建逼真的图像和艺术作品。Stable Diffusion 是一种深度学习、文本到图像模型，于 2022 年发布。<br>
+使用 MidJourney 不仅要科学上网，同时个人账户超过25次使用后，将会收取费用，对个人用户或使用频次较少的用户来说属实不友好。本文中将介绍一个免费使用 Dalle-2和 Stable Diffusion 的接口生成图片的方法：无需任何代码，当前无需付费。</p>
+<!-- more -->
+<h2 id="使用条件">使用条件</h2>
+<p>需要 Bunny 账号， <a href="https://bunny.net?ref=w8ps7nicxj" target="_blank">官网注册 bunny.net</a>，新账号使用 Coupon <strong>GET5</strong>可以白嫖5刀，网站流量不大用一年没问题。<br>
+Bunny 是一家 CDN 的供应商，在新发布的功能中，有一项 Bunny AI 的功能处于预览期，处于预览期内，所有的 AI 功能都是<strong>免费</strong>使用，Bunny AI 有一个功能是 Image Generation， 是基于 Dalle-2 或 Stable Deffusion 生成尺寸是 256px, 512px 和1024px的图片。<br>
+<img src="https://why.yuyeye.cc/post-images/1679900885396.jpeg" alt="" loading="lazy"></p>
+<h2 id="使用步骤">使用步骤</h2>
+<h3 id="添加-pull-zones">添加 Pull Zones</h3>
+<p>由于 Bunny是一个 CDN 服务商，注册账号，通过邮箱验证后，我们需要在 Pull Zones 中添加一个网站，若您没有网站，随意添加一个不重名的即可。<br>
+<img src="https://why.yuyeye.cc/post-images/1679900922763.jpeg" alt="" loading="lazy"></p>
+<h3 id="访问-bunny-ai">访问 Bunny AI</h3>
+<p>首先需要启用 AI Image Generation，选择图片生成引擎 AI Engine， 选择蓝图 Blueprint，输入关键词，点击 <a class="button1" style=" background-color: #feaf48; background-image: linear-gradient(to right, #ff7755, #feaa4a); color: #fff; padding: 0 35px; height: 44px; line-height: 44px; font-size: 12px; font-weight: 700; border: none; display: inline-block; border-radius: 8px; "><i class="fa fa-magic"></i> Generate</a> 即可生成。</p>
+<h4 id="ai-engine">AI Engine</h4>
+<p>不同的 AI引擎生成图片的风格和价格是不同的，当然目前是使用的。</p>
+<h4 id="blueprint">Blueprint</h4>
+<p>蓝图的作用是和 Prompt 一起生成图片，在 Bunny AI中，可以选择是 pixel 像素风格 或者是 Cyber赛博风。</p>
+<h4 id="image-prompt">Image Prompt</h4>
+<p>Prompt 是用于描述图片中的关键信息的文本内容，可以参考 Bunny 官方给出的<a href="https://docs.bunny.net/docs/bunny-ai-image-generation#prompt-suggestions">Prompt 教程</a></p>
+<h3 id="生成图片示例">生成图片示例</h3>
+<p>Prompt: <code>A rabbit in space suit is running from earth to moon.</code><br>
+<img src="https://why.yuyeye.cc/post-images/1679900934875.jpeg" alt="" loading="lazy"></p>
+<p>Blueprint: <code>demo-cyberpunk-avatar</code><br>
+<img src="https://why.yuyeye.cc/post-images/1679900940809.jpeg" alt="" loading="lazy"></p>
+<h3 id="其他ai作品展示">其他AI作品展示</h3>
+<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1679900947123.jpeg" alt="" loading="lazy"></figure>
+<h2 id="bunny-的-cdn-服务">Bunny 的 CDN 服务</h2>
+<p>Bunny 作为一个付费的 CDN 供应商，是我在 WordPress 建站的首选，不论是 B2B 还是 B2C 的商城网站，在图片和资源的优化下，轻松达到 GTMetrix 评分的 A 级别。<br>
+<img src="https://why.yuyeye.cc/post-images/1679900533626.jpeg" alt="" loading="lazy"><br>
+我是如何使用 WordPress 搭建高效的 B2C 网站，使用了哪些服务可以参考之前的文章：</p>
+<ul>
+<li><a href="/post/how-to-efficiently-build-woocommerce-store/">WooCommerce 自建高效商城搭建方案</a></li>
+</ul>
+<h2 id="机场推荐">机场推荐</h2>
+<p>目前使用了1年多的 <a href="https://speedcat-aff.com/auth/register?code=cWEN">SpeedCat</a>，搭配 ClashX for Windows 和 clashX Pro 在电脑端无阻使用，手机端使用 Clash 和 ShadowRoeckte，比较省心，推荐半年或一年付费，平均不到 ￥20/月，不是最便宜的，但是经过多个对比使用，稳定性很好，可以自动规则代理 ChatGPT。</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-limit-wordpress-woocommerce-registration-with-keywords/">
+              <h3 class="post-title">
+                如何使用 Keywords 限制 WordPress / WooCommerce 用户注册
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://why.yuyeye.cc</id>
+    <title>W!K!</title>
+    <updated>2023-07-17T03:53:39.337Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://why.yuyeye.cc"/>
+    <link rel="self" href="https://why.yuyeye.cc/atom.xml"/>
+    <subtitle>人在阳光下，怎能不阳光</subtitle>
+    <logo>https://why.yuyeye.cc/images/avatar.png</logo>
+    <icon>https://why.yuyeye.cc/favicon.ico</icon>
+    <rights>All rights reserved 2023, W!K!</rights>
+    <entry>
+        <title type="html"><![CDATA[使用 OpenAI 生成 WooCommerce 产品 Review]]></title>
+        <id>https://why.yuyeye.cc/post/generate-woocommerce-product-review-with-openai-tools-for-wordpress/</id>
+        <link href="https://why.yuyeye.cc/post/generate-woocommerce-product-review-with-openai-tools-for-wordpress/">
+        </link>
+        <updated>2023-07-16T01:11:59.000Z</updated>
+        <summary type="html"><![CDATA[<p>WooCommerce 的产品 Review 是客户主动在产品页留下评价，或在收到货物后对产品信息留下评论。客户留下的 Review 对于店铺来说，可以让客户更加了解产品信息，提升店铺品牌形象。我们有必要为店铺增加足够的 Review 以增加客户或订单的转化率。在本篇博客中，您可以通过 OpenAI 为产品生成无限的真实可信、贴近产品、提升形象的 Review。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>WooCommerce 的产品 Review 是客户主动在产品页留下评价，或在收到货物后对产品信息留下评论。客户留下的 Review 对于店铺来说，可以让客户更加了解产品信息，提升店铺品牌形象。我们有必要为店铺增加足够的 Review 以增加客户或订单的转化率。在本篇博客中，您可以通过 OpenAI 为产品生成无限的真实可信、贴近产品、提升形象的 Review。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何免费使用 Dalle-2 与 Stable Diffusion 生成图片]]></title>
+        <id>https://why.yuyeye.cc/post/how-to-generate-images-with-dalle-2-and-stable-diffusion-for-free/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-generate-images-with-dalle-2-and-stable-diffusion-for-free/">
+        </link>
+        <updated>2023-03-27T03:56:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>近期比较火热的 AI 图像生成工具有 Midjourney, Dalle-2 和 Stable Diffusion。Dalle-2 适用于创造了更逼真的图像，而 MidJourney 则更多地关注不同的艺术风格。Dalle-2 一种人工智能 (AI) 系统，可以根据自然语言的描述创建逼真的图像和艺术作品。Stable Diffusion 是一种深度学习、文本到图像模型，于 2022 年发布。<br>
+使用 MidJourney 不仅要科学上网，同时个人账户超过25次使用后，将会收取费用，对个人用户或使用频次较少的用户来说属实不友好。本文中将介绍一个免费使用 Dalle-2和 Stable Diffusion 的接口生成图片的方法：无需任何代码，当前无需付费。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>近期比较火热的 AI 图像生成工具有 Midjourney, Dalle-2 和 Stable Diffusion。Dalle-2 适用于创造了更逼真的图像，而 MidJourney 则更多地关注不同的艺术风格。Dalle-2 一种人工智能 (AI) 系统，可以根据自然语言的描述创建逼真的图像和艺术作品。Stable Diffusion 是一种深度学习、文本到图像模型，于 2022 年发布。<br>
+使用 MidJourney 不仅要科学上网，同时个人账户超过25次使用后，将会收取费用，对个人用户或使用频次较少的用户来说属实不友好。本文中将介绍一个免费使用 Dalle-2和 Stable Diffusion 的接口生成图片的方法：无需任何代码，当前无需付费。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何使用 Keywords 限制 WordPress / WooCommerce 用户注册]]></title>
+        <id>https://why.yuyeye.cc/post/how-to-limit-wordpress-woocommerce-registration-with-keywords/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-limit-wordpress-woocommerce-registration-with-keywords/">
+        </link>
+        <updated>2023-03-12T05:58:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近，我们的 WordPress 网站上搭建的 WooCommerce 店铺经常收到 <code>Delivery incomplete</code> 的邮件报错，点进去发现基本都如下的报错情况：</p>
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Delivery incomplete
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+There was a temporary problem delivering your message to <a style="color:#212121;text-decoration:none"><b>xxxx@xxx.xxx.xxx</b></a>. Gmail will retry for 46 more hours. You'll be notified if the delivery fails permanently.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285f4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://support.google.com/mail/answer/7720" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://support.google.com/mail/answer/7720&amp;source=gmail&amp;ust=1678687258387000&amp;usg=AOvVaw1nY3p9CakY0UIZpz1wACnr">LEARN MORE</a>
+</td></tr>
+</tbody></table>
+<p>意思就是邮件投递失败，查询后发现是机器人使用了随机的域名注册了店铺账户，收件箱内经常出现如下图的邮件提醒。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近，我们的 WordPress 网站上搭建的 WooCommerce 店铺经常收到 <code>Delivery incomplete</code> 的邮件报错，点进去发现基本都如下的报错情况：</p>
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Delivery incomplete
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+There was a temporary problem delivering your message to <a style="color:#212121;text-decoration:none"><b>xxxx@xxx.xxx.xxx</b></a>. Gmail will retry for 46 more hours. You'll be notified if the delivery fails permanently.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285f4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://support.google.com/mail/answer/7720" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://support.google.com/mail/answer/7720&amp;source=gmail&amp;ust=1678687258387000&amp;usg=AOvVaw1nY3p9CakY0UIZpz1wACnr">LEARN MORE</a>
+</td></tr>
+</tbody></table>
+<p>意思就是邮件投递失败，查询后发现是机器人使用了随机的域名注册了店铺账户，收件箱内经常出现如下图的邮件提醒。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在 WooCommerce 订单详情中添加历史订单时间线]]></title>
+        <id>https://why.yuyeye.cc/post/add-history-order-timeline-on-woocommerce-order-detail-page/</id>
+        <link href="https://why.yuyeye.cc/post/add-history-order-timeline-on-woocommerce-order-detail-page/">
+        </link>
+        <updated>2023-02-27T10:02:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>在 WooCommerce 的订单详情页面中，只能查看当前订单的情况，而不能直接查看用户的所有订单情况，为了解决这个痛点，我写了一段代码， 可以实现显示当前客户的所有订单的时间线和订单汇总情况。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在 WooCommerce 的订单详情页面中，只能查看当前订单的情况，而不能直接查看用户的所有订单情况，为了解决这个痛点，我写了一段代码， 可以实现显示当前客户的所有订单的时间线和订单汇总情况。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2023年店小秘如何自动同步外贸自建站订单]]></title>
+        <id>https://why.yuyeye.cc/post/2023-auto-synchronous-orders-on-dianxiaomi-erp/</id>
+        <link href="https://why.yuyeye.cc/post/2023-auto-synchronous-orders-on-dianxiaomi-erp/">
+        </link>
+        <updated>2023-02-26T12:03:05.000Z</updated>
+        <summary type="html"><![CDATA[<p>店小秘作为一款免费的 ERP，支持众多热门和小众的外贸自建站的对接，从而进行同步订单信息到 ERP 内进行处理，但是自建站，例如 WooCommerce, Magento 等站点或 Shopify 等站点无法自动推送订单信息到店小秘，可以使用店小秘的 <code>同步订单</code> 功能实现手动订单抓取。在本文中，可以实现<strong>自动定时同步</strong>订单信息到店小秘，无需人工值守来手动点击。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>店小秘作为一款免费的 ERP，支持众多热门和小众的外贸自建站的对接，从而进行同步订单信息到 ERP 内进行处理，但是自建站，例如 WooCommerce, Magento 等站点或 Shopify 等站点无法自动推送订单信息到店小秘，可以使用店小秘的 <code>同步订单</code> 功能实现手动订单抓取。在本文中，可以实现<strong>自动定时同步</strong>订单信息到店小秘，无需人工值守来手动点击。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WooCommerce 自建高效商城搭建方案]]></title>
+        <id>https://why.yuyeye.cc/post/how-to-efficiently-build-woocommerce-store/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-efficiently-build-woocommerce-store/">
+        </link>
+        <updated>2022-05-17T12:51:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Introduction of WooCat - Multi-Store Sales Report Client of WooCommerce]]></title>
+        <id>https://why.yuyeye.cc/post/introduction-of-woocat-multi-store-sales-report-client-of-woocommerce/</id>
+        <link href="https://why.yuyeye.cc/post/introduction-of-woocat-multi-store-sales-report-client-of-woocommerce/">
+        </link>
+        <updated>2022-04-28T14:14:27.000Z</updated>
+        <summary type="html"><![CDATA[<p>WooCat is an iOS app that can view an unlimited WooCommerce store sales reports. WooCat is developed based on the WooCommerce REST API and Store API, and does not need to install any plug-ins, just make the WooCommerce store with its own features to achieve various convenient functions.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>WooCat is an iOS app that can view an unlimited WooCommerce store sales reports. WooCat is developed based on the WooCommerce REST API and Store API, and does not need to install any plug-ins, just make the WooCommerce store with its own features to achieve various convenient functions.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[WooCat - WooCommerce 店群销售报告 iOS客户端]]></title>
+        <id>https://why.yuyeye.cc/post/woocat-woocommerce-dian-qun-xiao-shou-bao-gao-ios-ke-hu-duan/</id>
+        <link href="https://why.yuyeye.cc/post/woocat-woocommerce-dian-qun-xiao-shou-bao-gao-ios-ke-hu-duan/">
+        </link>
+        <updated>2022-03-27T06:46:34.000Z</updated>
+        <summary type="html"><![CDATA[<p>WooCat 是一款可以查看不限数量的 WooCommerce 店铺销售报告的App。WooCat 基于 WooCommerce REST API 和 Store API 进行开发，不需要安装任何插件，仅仅使 WooCommerce 店铺自带特性，即可实现各种便利的功能。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>WooCat 是一款可以查看不限数量的 WooCommerce 店铺销售报告的App。WooCat 基于 WooCommerce REST API 和 Store API 进行开发，不需要安装任何插件，仅仅使 WooCommerce 店铺自带特性，即可实现各种便利的功能。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[【WooCommerce 插件发布】同步物流信息到 PayPal]]></title>
+        <id>https://why.yuyeye.cc/post/woocommerce-plugin-add-tracking-info-to-paypal/</id>
+        <link href="https://why.yuyeye.cc/post/woocommerce-plugin-add-tracking-info-to-paypal/">
+        </link>
+        <updated>2021-12-10T13:00:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>作为全球最大的开源电商平台 WooCommerce，虽然拥有众多 ERP 插件，但是没有完善的商品管理、订单处理、物流信息同步等体验。对比 Shopify 的 app，WooCommerce 插件的质量就更显得参差不齐了。在对比了大多数 ERP 后，店小秘可以算得上是同类中做得最完善的，但依旧存在不少问题。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>作为全球最大的开源电商平台 WooCommerce，虽然拥有众多 ERP 插件，但是没有完善的商品管理、订单处理、物流信息同步等体验。对比 Shopify 的 app，WooCommerce 插件的质量就更显得参差不齐了。在对比了大多数 ERP 后，店小秘可以算得上是同类中做得最完善的，但依旧存在不少问题。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How To Charge Multi-sector of Mifare Classic 1K Card]]></title>
+        <id>https://why.yuyeye.cc/post/how-to-charge-multi-sector-of-mifare-classic-1k-card/</id>
+        <link href="https://why.yuyeye.cc/post/how-to-charge-multi-sector-of-mifare-classic-1k-card/">
+        </link>
+        <updated>2021-08-05T07:29:42.000Z</updated>
+        <summary type="html"><![CDATA[<p>In version <code>Ver.20210731_R1</code> of <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools&amp;hl=en_US&amp;gl=US">MTools app</a> on Google Play, we’ve added new free features which include charging Multi-sector of Mifare Classic 1K card with a single click. Here’s the comparison between upgrading before and after.<br>
+<a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools&amp;hl=en_US&amp;gl=US"><strong>Download MTools on Play Store &gt;&gt;</strong></a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>In version <code>Ver.20210731_R1</code> of <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools&amp;hl=en_US&amp;gl=US">MTools app</a> on Google Play, we’ve added new free features which include charging Multi-sector of Mifare Classic 1K card with a single click. Here’s the comparison between upgrading before and after.<br>
+<a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools&amp;hl=en_US&amp;gl=US"><strong>Download MTools on Play Store &gt;&gt;</strong></a></p>
+]]></content>
+    </entry>
+</feed>

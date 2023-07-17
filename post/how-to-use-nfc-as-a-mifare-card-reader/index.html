@@ -1,0 +1,214 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to use NFC as a mifare card reader - Read | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              How to use NFC as a mifare card reader - Read
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2018-01-30 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/pn532/" class="post-tag">
+                  # PN532
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/acr122u/" class="post-tag">
+                  # ACR122U
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/MTools/" class="post-tag">
+                  # MTools
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/android/" class="post-tag">
+                  # Android
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC/" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID/" class="post-tag">
+                  # RFID
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/DIY/" class="post-tag">
+                  # DIY
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/Hacker/" class="post-tag">
+                  # Hacker
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>NFC has been widely used on Android Pay, Apple Pay and Device Connection.<br>
+With NFC on Android Phone, it's even easy to read datas in the mifare card, such as Metro Card, RFID Parking card and etc.<br>
+This article shows how to use NFC as a mifare reader to read the amount remaining in the card.</p>
+<!--more-->
+<h3 id="device-app">Device &amp; APP</h3>
+<ol>
+<li>Android Phone with NFC</li>
+<li>Android APP: <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools">MTools</a> or <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool">MCT</a></li>
+</ol>
+<h3 id="keys-for-sector">Keys for sector</h3>
+<p>Mifare 1K Card is organized in 16 sectors of 4 blocks and one block consists of 16 byte.<br>
+The keyA or keyB is necessary to access the data in each block.<br>
+To crack keys, you have to use external device such as ACR122U, PN532, PM3. Or you can try your luck with another APP named <a href="https://play.google.com/store/apps/details?id=tk.toolkeys.mtools.keygen">MKeys</a>. Mkeys works with Enumeration, not hacking with the libnfc.</p>
+<h3 id="find-sector-with-valid-data">Find sector with valid data</h3>
+<p>Mostly, the manufacture only use 1 or 2 sectors to store the valid data. So try to read all datas in MCT and compare to dump file with another amount. Then you'll find out.</p>
+<h3 id="add-card-and-sector">Add Card and sector</h3>
+<p>With MTools, it's easy to add card and keys for sector with valid data. Now, try to read data in that sector.</p>
+<h3 id="mark-money-bytes">Mark money bytes</h3>
+<p>There has 16 bytes in each block, mostly consequent 2 or 3 bytes stands for the amount.<br>
+Here's an example of Card with a current balance of $50.00.</p>
+<pre><code>8813000077ECFFFF8813000012ED12ED
+00000000000000000000000000000000
+8813000077ECFFFF8813000012ED12ED
+</code></pre>
+<p>Decimal <code>5000</code> to Hex is <code>0x1388</code>.<br>
+Only need to mark the first two bytes: <code>88</code> and <code>13</code>.<br>
+Click Reverse and choose Rate <code>100</code> then it will show <code>$50.00</code> correctly.<br>
+<img src="https://why.yuyeye.cc/post-images/1557543245773.jpg" alt="" loading="lazy"></p>
+<h3 id="about-check-bytes">About check bytes</h3>
+<p>Check byte is the byte that change alsong with the money byte regularly. So it has expression to calculate.<br>
+Currently, we only need to read how much money remain in the card. So no need to mark any check byte.<br>
+Just click <code>OK</code> or <code>SAVE</code>.<br>
+<img src="https://why.yuyeye.cc/post-images/1557543252303.jpg" alt="" loading="lazy"></p>
+<h3 id="how-to-read">How to read</h3>
+<p>Just to Record Fragment, now tap card near to NFC antenna.<br>
+Now it has the balance shown.<br>
+<img src="https://why.yuyeye.cc/post-images/1557543259434.jpg" alt="" loading="lazy"></p>
+<h3 id="last-but-not-least">Last but not least</h3>
+<p>The expressions and rule are blank, so when you click <code>$</code> button in Record Fragment, only the first two bytes will change and it's not valide data. Long press <code>$</code> button to preview the data before charging.<br>
+I'll show you how to charge with this regular rule in next post.</p>
+<h3 id="introducing-on-youtube">Introducing on YouTube</h3>
+<div class="video-container">
+<iframe width="355" height="200" src="https://www.youtube.com/embed/hEwhJWAt3a8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/OrangePiZero-add-temp-controlled-fan/">
+              <h3 class="post-title">
+                OrangePiZero加装温控风扇
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,566 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>在 WooCommerce 订单详情中添加历史订单时间线 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              在 WooCommerce 订单详情中添加历史订单时间线
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2023-02-27 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/J7umvaYrR/" class="post-tag">
+                  # WordPress
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/TEohhCvb6/" class="post-tag">
+                  # WooCommerce
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>在 WooCommerce 的订单详情页面中，只能查看当前订单的情况，而不能直接查看用户的所有订单情况，为了解决这个痛点，我写了一段代码， 可以实现显示当前客户的所有订单的时间线和订单汇总情况。</p>
+<!-- more -->
+<h2 id="效果展示">效果展示</h2>
+<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1677506237278.jpg" alt="" loading="lazy"></figure>
+<ol>
+<li>顶部表格汇总了不同状态的订单数量和订单金额</li>
+<li>按时间降序的方式展示了所有订单的总额与状态</li>
+<li>点击订单号可以新窗口打开该订单的编辑页面</li>
+<li>当前订单在时间线上显示为彩色阴影</li>
+</ol>
+<h2 id="代码展示">代码展示</h2>
+<p>将以下代码添加到子主题的 <code>functions.php</code> 内即可</p>
+<pre><code>function order_timeline_display_meta_box($post)
+{
+    if (get_post_meta($post-&gt;ID, '_customer_user', true) == 0) {
+        echo '&lt;p&gt;This is a guest order.&lt;/p&gt;';
+        return;
+    }
+    $customer_id = get_post_meta($post-&gt;ID, '_customer_user', true);
+    $orders = wc_get_orders(array(
+        'customer' =&gt; $customer_id,
+        'limit' =&gt; -1,
+    ));
+
+    if (count($orders) &gt; 1) {
+        $order_status_count = array();
+        $order_status_total = array();
+        foreach ($orders as $order) {
+            $order_status = $order-&gt;get_status();
+            if (isset($order_status_count[$order_status])) {
+                $order_status_count[$order_status] += 1;
+                $order_status_total[$order_status] += $order-&gt;get_total();
+            } else {
+                $order_status_count[$order_status] = 1;
+                $order_status_total[$order_status] = $order-&gt;get_total();
+            }
+        }
+        echo '&lt;table class=&quot;order-total-table&quot;&gt;';
+        echo '&lt;tr&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Cnt&lt;/th&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;';
+        foreach ($order_status_count as $status =&gt; $count) {
+            $status_color = '';
+            echo '&lt;tr&gt;&lt;td&gt;' . ucfirst($status) . '&lt;/td&gt;&lt;td&gt;' . $count . '&lt;/td&gt;&lt;td&gt;' . wc_price($order_status_total[$status]) . '&lt;/td&gt;&lt;/tr&gt;';
+        }
+        echo '&lt;/table&gt;';
+    }
+
+    echo '&lt;ul class=&quot;order-timeline-timeline&quot;&gt;';
+    foreach ($orders as $order) {
+        $order_id = $order-&gt;get_id();
+        $order_date = $order-&gt;get_date_created()-&gt;format('F j, Y');
+        $order_total = $order-&gt;get_total();
+        $order_status = $order-&gt;get_status();
+        $currency_symbol = get_woocommerce_currency_symbol();
+        $status_color = '';
+        switch ($order_status) {
+            case 'completed':
+                $status_color = '#8bc34a';
+                break;
+            case 'processing':
+                $status_color = '#ffc107';
+                break;
+            case 'pending':
+                $status_color = '#03a9f4';
+                break;
+            case 'on-hold':
+                $status_color = '#e91e63';
+                break;
+            case 'cancelled':
+                $status_color = '#9e9e9e';
+                break;
+            case 'refunded':
+                $status_color = '#ff5722';
+                break;
+            case 'failed':
+                $status_color = '#f44336';
+                break;
+            default:
+                $status_color = '#9e9e9e';
+        }
+        $class_current_order = '';
+        if ($order_id == $post-&gt;ID) {
+            $class_current_order = 'current-order';
+        }
+
+        echo '&lt;li class=&quot;' . $class_current_order . '&quot;&gt;';
+        echo '&lt;div class=&quot;order-timeline-timeline-card&quot;&gt;';
+        $order_edit_link = get_edit_post_link($order_id);
+
+        echo '&lt;div class=&quot;order-timeline-timeline-head&quot;&gt;&lt;div class=&quot;order-timeline-timeline-order-number&quot;&gt;' . '&lt;a href=&quot;' . $order_edit_link . '&quot; target=&quot;_blank&quot;&gt;#' . $order_id . '&lt;/a&gt;' . '&lt;/div&gt;&lt;div class=&quot;order-timeline-timeline-date&quot;&gt;' . $order_date . '&lt;/div&gt;&lt;/div&gt;';
+        echo '&lt;div class=&quot;order-timeline-timeline-bottom&quot;&gt;&lt;div class=&quot;order-timeline-timeline-status&quot; style=&quot;background-color: ' . $status_color . ';&quot;&gt;' . ucfirst($order_status) . '&lt;/div&gt;&lt;div class=&quot;order-timeline-timeline-total&quot;&gt;' . $currency_symbol . $order_total . '&lt;/div&gt;';
+        echo '&lt;/div&gt;';
+        echo '&lt;/li&gt;';
+    }
+    echo '&lt;/ul&gt;';
+
+    ?&gt;
+    &lt;style&gt;
+        .order-total-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .order-total-table th {
+            background-color: #f1f1f1;
+        }
+
+        .order-total-table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        .order-total-table th,
+        .order-total-table td {
+            text-align: center;
+            padding: 8px;
+        }
+
+        ul.order-timeline-timeline {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        ul.order-timeline-timeline li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        ul.order-timeline-timeline li::before {
+            content: &quot;&quot;;
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            position: absolute;
+            left: 1px;
+            z-index: 1;
+            transform: translateX(-50%);
+        }
+
+        ul.order-timeline-timeline li::after {
+            content: &quot;&quot;;
+            position: absolute;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: #ccc;
+            top: 8px;
+            left: 0;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-card {
+            padding: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        ul.order-timeline-timeline li.current-order .order-timeline-timeline-card {
+            box-shadow: 0 2px 2px 2px #2271b1a3;
+        }
+
+        ul.order-timeline-timeline li.current-order::before{
+            background-color: #2271b1;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-bottom,
+        ul.order-timeline-timeline li .order-timeline-timeline-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: flex-end;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-order-number {
+            font-weight: bold;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-status {
+            display: inline-block;
+            color: #fff;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 5px;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-total {
+            font-weight: bold;
+        }
+    &lt;/style&gt;
+&lt;?php
+}
+
+function order_timeline_plugin_add_meta_box()
+{
+    add_meta_box(
+        'order-timeline-order-timeline',
+        'Order Timeline',
+        'order_timeline_display_meta_box',
+        'shop_order',
+        'side',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'order_timeline_plugin_add_meta_box');
+</code></pre>
+<h2 id="概要">概要</h2>
+<p>上述代码还可通过 <code>Code Snippets</code> 插件添加到网站后台中。<br>
+如果 WooCommerce 设置了 Guest 可直接下单，则可能出现订单未绑定客户的情况，不会展示客户的订单时间线。</p>
+<h2 id="第二版更新">第二版更新</h2>
+<h3 id="更新内容">更新内容</h3>
+<ol>
+<li>修复创建订单页面报错问题</li>
+</ol>
+<h3 id="完整代码">完整代码</h3>
+<pre><code>function order_timeline_display_meta_box($post)
+{
+    if ($post-&gt;post_status == 'auto-draft') {
+        echo '&lt;p&gt;Timeline shows on the created orders.&lt;/p&gt;';
+        return;
+    }
+    
+    if (get_post_meta($post-&gt;ID, '_customer_user', true) == 0) {
+        echo '&lt;p&gt;This is a guest order.&lt;/p&gt;';
+        return;
+    }
+    $customer_id = get_post_meta($post-&gt;ID, '_customer_user', true);
+    $orders = wc_get_orders(array(
+        'customer' =&gt; $customer_id,
+        'limit' =&gt; -1,
+    ));
+
+    if (count($orders) &gt; 1) {
+        $order_status_count = array();
+        $order_status_total = array();
+        foreach ($orders as $order) {
+            $order_status = $order-&gt;get_status();
+            if (isset($order_status_count[$order_status])) {
+                $order_status_count[$order_status] += 1;
+                $order_status_total[$order_status] += $order-&gt;get_total();
+            } else {
+                $order_status_count[$order_status] = 1;
+                $order_status_total[$order_status] = $order-&gt;get_total();
+            }
+        }
+        echo '&lt;table class=&quot;order-total-table&quot;&gt;';
+        echo '&lt;tr&gt;&lt;th&gt;Status&lt;/th&gt;&lt;th&gt;Cnt&lt;/th&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;';
+        foreach ($order_status_count as $status =&gt; $count) {
+            $status_color = '';
+            echo '&lt;tr&gt;&lt;td&gt;' . ucfirst($status) . '&lt;/td&gt;&lt;td&gt;' . $count . '&lt;/td&gt;&lt;td&gt;' . wc_price($order_status_total[$status]) . '&lt;/td&gt;&lt;/tr&gt;';
+        }
+        echo '&lt;/table&gt;';
+    }
+
+    echo '&lt;ul class=&quot;order-timeline-timeline&quot;&gt;';
+    foreach ($orders as $order) {
+        $order_id = $order-&gt;get_id();
+        $order_date = $order-&gt;get_date_created()-&gt;format('F j, Y');
+        $order_total = $order-&gt;get_total();
+        $order_status = $order-&gt;get_status();
+        $currency_symbol = get_woocommerce_currency_symbol();
+        $status_color = '';
+        switch ($order_status) {
+            case 'completed':
+                $status_color = '#8bc34a';
+                break;
+            case 'processing':
+                $status_color = '#ffc107';
+                break;
+            case 'pending':
+                $status_color = '#03a9f4';
+                break;
+            case 'on-hold':
+                $status_color = '#e91e63';
+                break;
+            case 'cancelled':
+                $status_color = '#9e9e9e';
+                break;
+            case 'refunded':
+                $status_color = '#ff5722';
+                break;
+            case 'failed':
+                $status_color = '#f44336';
+                break;
+            default:
+                $status_color = '#9e9e9e';
+        }
+        $class_current_order = '';
+        if ($order_id == $post-&gt;ID) {
+            $class_current_order = 'current-order';
+        }
+
+        echo '&lt;li class=&quot;' . $class_current_order . '&quot;&gt;';
+        echo '&lt;div class=&quot;order-timeline-timeline-card&quot;&gt;';
+        $order_edit_link = get_edit_post_link($order_id);
+
+        echo '&lt;div class=&quot;order-timeline-timeline-head&quot;&gt;&lt;div class=&quot;order-timeline-timeline-order-number&quot;&gt;' . '&lt;a href=&quot;' . $order_edit_link . '&quot; target=&quot;_blank&quot;&gt;#' . $order_id . '&lt;/a&gt;' . '&lt;/div&gt;&lt;div class=&quot;order-timeline-timeline-date&quot;&gt;' . $order_date . '&lt;/div&gt;&lt;/div&gt;';
+        echo '&lt;div class=&quot;order-timeline-timeline-bottom&quot;&gt;&lt;div class=&quot;order-timeline-timeline-status&quot; style=&quot;background-color: ' . $status_color . ';&quot;&gt;' . ucfirst($order_status) . '&lt;/div&gt;&lt;div class=&quot;order-timeline-timeline-total&quot;&gt;' . $currency_symbol . $order_total . '&lt;/div&gt;';
+        echo '&lt;/div&gt;';
+        echo '&lt;/li&gt;';
+    }
+    echo '&lt;/ul&gt;';
+
+    ?&gt;
+    &lt;style&gt;
+        .order-total-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        .order-total-table th {
+            background-color: #f1f1f1;
+        }
+
+        .order-total-table tr:nth-child(odd) {
+            background-color: #f1f1f1;
+        }
+
+        .order-total-table th,
+        .order-total-table td {
+            text-align: center;
+            padding: 8px;
+        }
+
+        ul.order-timeline-timeline {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        ul.order-timeline-timeline li {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        ul.order-timeline-timeline li::before {
+            content: &quot;&quot;;
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            position: absolute;
+            left: 1px;
+            z-index: 1;
+            transform: translateX(-50%);
+        }
+
+        ul.order-timeline-timeline li::after {
+            content: &quot;&quot;;
+            position: absolute;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: #ccc;
+            top: 8px;
+            left: 0;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-card {
+            padding: 10px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        ul.order-timeline-timeline li.current-order .order-timeline-timeline-card {
+            box-shadow: 0 2px 2px 2px #2271b1a3;
+        }
+
+        ul.order-timeline-timeline li.current-order::before{
+            background-color: #2271b1;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-bottom,
+        ul.order-timeline-timeline li .order-timeline-timeline-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: flex-end;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-order-number {
+            font-weight: bold;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-status {
+            display: inline-block;
+            color: #fff;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 5px;
+        }
+
+        ul.order-timeline-timeline li .order-timeline-timeline-total {
+            font-weight: bold;
+        }
+    &lt;/style&gt;
+&lt;?php
+}
+
+function order_timeline_plugin_add_meta_box()
+{
+    add_meta_box(
+        'order-timeline-order-timeline',
+        'Order Timeline',
+        'order_timeline_display_meta_box',
+        'shop_order',
+        'side',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'order_timeline_plugin_add_meta_box');
+
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/2023-auto-synchronous-orders-on-dianxiaomi-erp/">
+              <h3 class="post-title">
+                2023年店小秘如何自动同步外贸自建站订单
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

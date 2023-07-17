@@ -1,0 +1,288 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用ESP8266做一个小心意儿 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              使用ESP8266做一个小心意儿
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-08-26 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/12kSfzINX/" class="post-tag">
+                  # Arduino
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/DIY/" class="post-tag">
+                  # DIY
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <h1 id="day-1">Day 1</h1>
+<p>醒的好早，突然想到了做<code>Arduino</code>的点子，上班前就下单了两套微雪电子的<code>e-Paper ESP8266 Driver Board</code></p>
+<!-- more -->
+<p><img src="https://why.yuyeye.cc/post-images/1567084690845.jpg" alt="" loading="lazy"><br>
+一套搭配2.13英寸的红黑白电子墨水屏，另一套为1.54英寸的黄黑白电子墨水屏。<br>
+<img src="https://why.yuyeye.cc/post-images/1567087022883.jpg" alt="" loading="lazy"></p>
+<p>为什么选微雪的呢，主要是在网上搜电子墨水屏似乎都是他们家的产品，在酷安网也看到有人分享用树莓派做这个的教程了，也想尝试下<code>Arduino</code>这个新平台，更想给小同学做我自己动手做的新的小玩意儿。</p>
+<h1 id="day-2">Day 2</h1>
+<p>也就是周二的下午，下班时分收到货了。<br>
+第一时间上了<a href="http://www.waveshare.net/wiki/E-Paper-ESP8266-Driver-Board-Video">官方的demo</a>，写入了一张图片，那刷新速度，慢到像是在看电影一样，接近半分钟，先看下1.54inch的152x152分辨率的表现<br>
+<img src="https://why.yuyeye.cc/post-images/1567087879831.jpg" alt="" loading="lazy"><br>
+其实在电子墨水屏上，这分辨率还是不错的，比LCD点阵的要舒服很多。<br>
+放大看下每个像素点，有点像蜂巢<br>
+<img src="https://why.yuyeye.cc/post-images/1567088119279.jpg" alt="" loading="lazy"><br>
+只是刷新时间太长，去翻资料发现竟然要27秒，且不支持全局刷新</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">型号</th>
+<th style="text-align:center">颜色</th>
+<th style="text-align:center">分辨率</th>
+<th style="text-align:center">刷新(s)</th>
+<th style="text-align:center">局部</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/1.54inch-e-Paper.htm">1.54inch e-Paper </a></td>
+<td style="text-align:center">黑、白</td>
+<td style="text-align:center">200×200</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/1.54inch-e-Paper-B.htm">1.54inch e-Paper (B)</a></td>
+<td style="text-align:center">红、黑、白</td>
+<td style="text-align:center">200×200</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/1.54inch-e-Paper-C.htm">1.54inch e-Paper (C)</a></td>
+<td style="text-align:center">黄、黑、白</td>
+<td style="text-align:center">152×152</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/2.13inch-e-Paper.htm">2.13inch e-Paper</a></td>
+<td style="text-align:center">黑、白</td>
+<td style="text-align:center">250×122</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/2.13inch-e-Paper-B.htm">2.13inch e-Paper (B)</a></td>
+<td style="text-align:center">红、黑、白</td>
+<td style="text-align:center">212×104</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/2.13inch-e-Paper-C.htm">2.13inch e-Paper (C)</a></td>
+<td style="text-align:center">黄、黑、白</td>
+<td style="text-align:center">212×104</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center">×</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="http://www.waveshare.net/shop/2.13inch-e-Paper-D.htm">2.13inch e-Paper (D)</a></td>
+<td style="text-align:center">黑、白</td>
+<td style="text-align:center">212×104</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">√</td>
+</tr>
+<tr>
+<td style="text-align:center">并且这个demo真的只是上传图片，由于ESP8266内存太小，根本带不动彩色墨水屏，因此图片是存储在芯片里，然后再加载，并不是动态添加刷新动，有些小失望。</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h1 id="day-3">Day 3</h1>
+<p>与客服斗智斗勇，终于同意为我更换成对应尺寸动黑白点子屏了，就是冲着2秒动刷新率，这才符合用来刷新显示的要求。<br>
+在没有屏幕时候，只能进行一些代码的测试和学习了，比如利用自己的消息接口，实现了当设备连接上Wi-Fi后，自动推送当前IP地址到手机上，</p>
+<pre><code>void sendMsg(String s) {
+  WiFiClient client;
+  blinkled();
+  delay(1000);
+  if (client.connect(host, 80)) {
+    Serial.println(&quot;Connected and Sending request&quot;);
+    String postRequest = (String)(&quot;GET &quot;) + url + s + &quot; HTTP/1.1\r\n&quot; +
+                         &quot;Content-Type: text/html;charset=utf-8\r\n&quot; +
+                         &quot;Host: &quot; + host + &quot;\r\n&quot; +
+                         &quot;Connection: close\r\n\r\n&quot;;
+    Serial.println(postRequest);
+    client.print(postRequest);
+  } else {
+    sendMsg(s);
+  }
+}
+</code></pre>
+<p>需要注意的是，同样由于RAM小的原因，<code>ESP8266</code>带不动https的通信，因此只用走80端口。<br>
+另外，还测试了 <code>deepSleep</code>深度睡眠，20A的电流，新到的2000mAh的电池使用几个月没问题的 LOL<br>
+<img src="https://why.yuyeye.cc/post-images/1567308496367.jpg" alt="" loading="lazy"><br>
+今天还在我们的W.K.软件上加入了SmartConfig的代码，实现了手机为<code>ESP8266</code>配置连接上Wi-Fi网络，不得不感叹这个聪明的设计。</p>
+<h1 id="day-4">Day 4</h1>
+<p>卖家收到了寄去的屏幕，预计后天下班时分才能收到将要寄来黑白屏幕。<br>
+今天需要记录的是，成功的将Wi-Fi的ssid与pwd记录在了<code>ESP8266</code>的<code>EEPROM</code>中，真正做到了断电后仍可重连。<br>
+保存当前网络配置</p>
+<pre><code>void saveConfig()
+{
+  EEPROM.begin(512);
+  strcpy(conf.ssid, WiFi.SSID().c_str());
+  strcpy(conf.pass, WiFi.psk().c_str());
+  EEPROM.put(1, conf);
+  EEPROM.commit();
+}
+</code></pre>
+<p>载入已保存的网络配置</p>
+<pre><code>void loadConfig()
+{
+  EEPROM.begin(512);
+  EEPROM.get(1, conf);
+}
+</code></pre>
+<p>如今屏幕不在的日子，捣鼓出来这样的运行顺序</p>
+<ol>
+<li>判断是否可连接已存在网络配置</li>
+<li>不存在则进行SmartConfig</li>
+<li>连接上网络后保存配置</li>
+</ol>
+<h1 id="day-6">Day 6</h1>
+<p>黑白的墨水屏还没到，不能进行测试。<br>
+功能上增加EEPROM记录启动的次数和推送</p>
+<h1 id="day-8-12">Day 8 - 12</h1>
+<p>微雪更新了V2版本的屏幕，但是只适用于加载一个静态图像。<br>
+不断的尝试和找库文件，发现GxEPD2可以驱动，但是问题一堆，页面刷新后都说雪花。</p>
+<p>更新中，未完待续……</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-calculate-crc8-and-crc16-in-mtools/">
+              <h3 class="post-title">
+                How to calculate CRC8 &amp; CRC16 in MTools
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

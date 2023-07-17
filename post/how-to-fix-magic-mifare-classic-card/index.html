@@ -1,0 +1,201 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How To Fix Magic Mifare Classic Card | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              How To Fix Magic Mifare Classic Card
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2021-02-02 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/MTools/" class="post-tag">
+                  # MTools
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC/" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID/" class="post-tag">
+                  # RFID
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>The Magic Mifare Classic 1K card has not only changeable UID but also full backer door command support. When we write error data to the magic card cards, they also can be no response or dead. Here's the tutorial to fix the Magic Mifare Classic Card.</p>
+<!-- more -->
+<h2 id="when-to-fix-magic-card">When to fix magic card?</h2>
+<ol>
+<li>It was written with an invalid SAK byte.<br>
+The valid SAK bytes are 08, 18, 28.<br>
+If the other Hex numbers are written to the card, there will be NO response to NFC at all.</li>
+<li>It has an invalid access control byte.<br>
+The default access control byte is <strong>FF078069</strong>.<br>
+The sector with an invalid access control byte will be a dead sector.</li>
+</ol>
+<h2 id="how-to-fix-it">How to fix it?</h2>
+<h3 id="install-libnfc-tool">Install <strong>libnfc</strong> tool</h3>
+<h4 id="on-linux">On Linux</h4>
+<ol>
+<li>Get the code <code>git clone https://github.com/nfc-tools/libnfc</code></li>
+<li>Compile and Install</li>
+</ol>
+<pre><code>cd libnfc
+autoreconf -vis
+./configure --with-drivers=pn532_uart --enable-serial-autoprobe --prefix=/usr/local/
+sudo make clean all
+sudo make
+sudo make install
+</code></pre>
+<h4 id="on-macos">On MacOS</h4>
+<ol>
+<li>Run in Terminal and press enter key.<pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; &lt; /dev/null 2&gt; /dev/null  
+</code></pre>
+</li>
+<li>Run: <code>brew install libnfc</code></li>
+</ol>
+<h3 id="connection">Connection</h3>
+<p><strong>RFID PN532</strong> in made by MToolsTec is all in one design that will support connection with both Micro-USB and Type-C.<br>
+<img src="https://why.yuyeye.cc/post-images/1612234943039.jpg" alt="" loading="lazy"></p>
+<p style="text-align: center;"> <a href="https://shop.mtoolstec.com/product/mtools-all-in-one-pn532">Learn More | Shop Now</a> </p>  
+<h3 id="command">Command</h3>
+<ol>
+<li>Using <strong>nfc-mfsetuid</strong> to reset uid to 11223344. (UID and SAK byte fixed)</li>
+<li>Using <strong>nfc-mfsetuid F148F784 -f</strong> to reset uid to F148F784 and format all sectors.<br>
+<img src="https://why.yuyeye.cc/post-images/1612233583338.jpg" alt="" loading="lazy"></li>
+</ol>
+<h3 id="on-windows">On Windows</h3>
+<ol>
+<li>Download <strong>MifareOne Tool English.zip</strong>. <a href="https://github.com/xavave/MifareOneTool-English/releases/download/1.8/MifareOneTool.zip">Download Now</a></li>
+<li>Connect <strong>RFID PN532</strong> with USB cable.</li>
+<li>Install the Driver of CH340 USB serial. <a href="http://www.wch.cn/downloads/file/65.html">Download Now</a></li>
+<li>Click on <strong>Reset UID</strong> or <strong>Format UID</strong> button to handle the reset process.<br>
+<img src="https://why.yuyeye.cc/post-images/1612233569821.jpg" alt="" loading="lazy"></li>
+</ol>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/scrap-amazon-review-by-web-scraper-in-2020/">
+              <h3 class="post-title">
+                2020年抓取亚马逊Review新方法-Web Scraper实际应用
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

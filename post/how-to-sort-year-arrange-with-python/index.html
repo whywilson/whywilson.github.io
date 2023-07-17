@@ -1,0 +1,230 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>使用python处理年份范围的汇总 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              使用python处理年份范围的汇总
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-08-31 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/Python/" class="post-tag">
+                  # Python
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>在处理许多年份的数据中，遇到需要将查询到的年份进行归类汇总的需求。要求是连续的年份只显示最早与最末的年份，独立没有连续的年份可单独跟随在之前</p>
+<!-- more -->
+<p>例如：<br>
+将原始数组 <code>[1998, 1999, 2000, 2008, 2016, 2017, 2018, 2019]</code><br>
+处理成 <code>1999 - 2000, 2008, 2016 - 2019</code><br>
+直接上代码</p>
+<pre><code>def getYearArray(year_array_list):
+	list = &quot;&quot;
+	year_start = year_array_list[0]
+	year_end = year_start
+	year_add = 0
+	year_cycle = &quot;&quot;
+	last_year = 0
+	year_end = year_start
+	for year_now in year_array_list:
+		if(year_now == year_start + year_add):
+			year_end = year_now;
+			year_cycle = str(year_start) + &quot; - &quot; + str(year_end)
+			year_add = year_add + 1
+			if(year_now == year_array_list[len(year_array_list)-1]):
+				list = list + &quot;, &quot; + year_cycle
+		else:
+			if(len(list) == 0):
+				list = year_cycle
+			else:
+				if(year_cycle != &quot;&quot;):
+					list = list + &quot;, &quot; + year_cycle
+				else:
+					list = list + &quot;, &quot; + str(year_start)
+			year_start = year_now
+			year_end = year_start
+			year_cycle = &quot;&quot;
+			year_add = 1
+		if(len(year_array_list) == year_add):
+			list = year_cycle
+	print year_array_list	
+	return list
+
+
+if __name__ == '__main__':
+		print getYearArray([1999, 2000, 2001, 2002, 2005, 2006, 2007, 2009, 2013, 2016, 2017, 2018, 2019])
+</code></pre>
+<p>代码的关键在于判断与循环的点</p>
+<ol>
+<li>若年份连续，year_cycle的尾数则需要更新</li>
+<li>如果年份未连续，若year_cycle存在值，则追加到list，否则，追加当前份</li>
+<li>最后判断若整个数组为连续年份时，数组长度为累加的次数</li>
+</ol>
+<p>运行结果输出：</p>
+<pre><code>[1999, 2000, 2001, 2002, 2005, 2006, 2007, 2009, 2013, 2016, 2017, 2018, 2019]
+1999 - 2002, 2005 - 2007, 2009, 2013, 2016 - 2019
+</code></pre>
+<p>以上代码还是<span style="color: red; font-weight:bold;">存在问题</span>，在后面的作业中，发现了新的解析思路：<br>
+通过两个循环，连续则表示在一个list内，否则在new下一个list</p>
+<pre><code>def getYearArray(year_array_list):
+	year_summary = []
+	year_loop = []
+	year_array_list_distinct = []
+	for year_dis in year_array_list:
+		if(year_dis not in year_array_list_distinct):
+			year_array_list_distinct.append(year_dis)	
+	year_array_list = year_array_list_distinct
+	for i in range(len(year_array_list)):
+		year_now = year_array_list[i]
+		if(i == 0):
+			year_loop.append(year_now)
+			year_summary.append(year_loop)
+		elif(year_now == year_summary[len(year_summary) - 1][len(year_summary[len(year_summary) - 1]) - 1] + 1):
+			year_summary[len(year_summary) - 1].append(year_now)
+		else:
+			year_loop = []
+			year_loop.append(year_now)
+			year_summary.append(year_loop)
+	year_final = &quot;&quot;
+	for year_loop_list in year_summary:
+		if(len(year_loop_list) == 1):
+			if(year_final == &quot;&quot;):
+				year_final = str(year_loop_list[0])
+			else:
+				year_final = year_final + &quot;, &quot; + str(year_loop_list[0])
+		else:
+			if(year_final == &quot;&quot;):
+				year_final = str(year_loop_list[0]) + &quot; - &quot; + str(year_loop_list[len(year_loop_list) -1])
+			else:
+				year_final = year_final + &quot;, &quot; + str(year_loop_list[0]) + &quot; - &quot; + str(year_loop_list[len(year_loop_list) -1])
+#	print year_final
+</code></pre>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/How-to-DIY-a-weather-box-with-ESP8266/">
+              <h3 class="post-title">
+                使用ESP8266做一个小心意儿
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to use Sniffer in MTools | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              How to use Sniffer in MTools
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-11-16 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/MTools/" class="post-tag">
+                  # MTools
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/NFC/" class="post-tag">
+                  # NFC
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/RFID/" class="post-tag">
+                  # RFID
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>Depending on the Firebase of MTools, only 15% of MTools users have used Sniffer functions of MTools. It's really a easy tools for comparison and analysing. In this article, I'll show the tutorial of how to use Sniffer in MTools.</p>
+<!-- more -->
+<h1 id="why-use-sniffer">Why use Sniffer</h1>
+<p>After getting the keys of a sector which contains valid datas, we need to compare datas in different amount. So I made the Sniffer in MTools to gather and compare datas more easily.<br>
+The light-pink and light-blue backgroud shows if the bytes change.<br>
+<img src="https://why.yuyeye.cc/post-images/1574347906909.jpg" alt="" loading="lazy"></p>
+<h1 id="where-is-sniffer-in-mtools">Where is Sniffer in MTools</h1>
+<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1574347023367.jpg" alt="" loading="lazy"></figure>
+<ol>
+<li>After adding a card in List Fragment, you can add a sector in Detail Fragment.</li>
+<li>Fill in the keyA and keyB on one sector depending on your needs.</li>
+<li>Click the 3rd section.</li>
+</ol>
+<h1 id="how-to-use-sniffer">How to use Sniffer</h1>
+<ol>
+<li>Mark Money Bytes<br>
+<img src="https://why.yuyeye.cc/post-images/1574349436660.jpg" alt="" loading="lazy"></li>
+<li>Mark Check Bytes<br>
+<img src="https://why.yuyeye.cc/post-images/1574349445281.jpg" alt="" loading="lazy"></li>
+<li>Tips of Expression</li>
+</ol>
+<pre><code>Operator 
+   • + - × ÷ Modulo ➡ + - * / # 
+   • XOR ➡ @^ ➡ xor 
+   • NOT ➡ @～ ➡ not 
+   • AND ➡ @&amp; ➡ and 
+   • OR ➡ @| ➡ or 
+   • Signed left shift n ➡ @&lt;&lt;n 
+   • Signed right shift n ➡ @&gt;&gt;n 
+   • More 
+
+Examples 
+   • b2=b1 ➡ b2=b1 
+   • b4=b2+0x1F ➡ b4=b2+31(decimal) 
+   • b15=b0 xor b1 ➡ b15=b0 xor b1 
+   • b2=not b0 ➡ b2=not b0 Note 
+   • Convert constant to decimal 
+   • Drag up/down to change the order of calculation
+</code></pre>
+<ol start="4">
+<li>After Expression added<br>
+<img src="https://why.yuyeye.cc/post-images/1574350100574.jpg" alt="" loading="lazy"></li>
+</ol>
+<h1 id="conclusion">Conclusion</h1>
+<p>If there is no <strong>Strikethrough</strong> on check bytes, it means all expressions are correct.<br>
+Now you know another tips of MTools.</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/can-uid-be-changed-on-mifare-1k-card/">
+              <h3 class="post-title">
+                Can UID be changed on Mifare 1K Card?
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

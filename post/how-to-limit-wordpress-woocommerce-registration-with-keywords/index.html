@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何使用 Keywords 限制 WordPress / WooCommerce 用户注册 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              如何使用 Keywords 限制 WordPress / WooCommerce 用户注册
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2023-03-12 ·
+              </time>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>最近，我们的 WordPress 网站上搭建的 WooCommerce 店铺经常收到 <code>Delivery incomplete</code> 的邮件报错，点进去发现基本都如下的报错情况：</p>
+<table style="min-width:272px;padding-top:8px"><tbody>
+<tr><td><h2 style="font-size:20px;color:#212121;font-weight:bold;margin:0">
+Delivery incomplete
+</h2></td></tr>
+<tr><td style="padding-top:20px;color:#757575;font-size:16px;font-weight:normal;text-align:left">
+There was a temporary problem delivering your message to <a style="color:#212121;text-decoration:none"><b>xxxx@xxx.xxx.xxx</b></a>. Gmail will retry for 46 more hours. You'll be notified if the delivery fails permanently.
+</td></tr>
+<tr><td style="padding-top:24px;color:#4285f4;font-size:14px;font-weight:bold;text-align:left">
+<a style="text-decoration:none" href="https://support.google.com/mail/answer/7720" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://support.google.com/mail/answer/7720&amp;source=gmail&amp;ust=1678687258387000&amp;usg=AOvVaw1nY3p9CakY0UIZpz1wACnr">LEARN MORE</a>
+</td></tr>
+</tbody></table>
+<p>意思就是邮件投递失败，查询后发现是机器人使用了随机的域名注册了店铺账户，收件箱内经常出现如下图的邮件提醒。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1678603375496.jpg" alt="" loading="lazy"></figure>
+<p>作为一个 商城网站，我们不能关停用户注册的功能，并且也使用了人机验证的服务，但是任然没法避免机器人注册泛滥，因此我们需要加上注册的限制功能。<br>
+我先简单搜索了下，确实有相关的插件可以解决此类问题，但是为了避免这类插件带来一些不必要的功能，因此我们采用自行添加代码到子主题的 <code>functions.php</code> 中实现相关的功能。</p>
+<h2 id="关键词设置界面">关键词设置界面</h2>
+<p>首先需要一个可以自定义关键词和限制规则的设置界面，设置的选项包括关键词设置和限制三级域名的邮箱注册。</p>
+<pre><code>// Register a new settings menu in WordPress admin
+function register_limits_settings_menu() {
+  add_options_page( 'Registration Keywords Options', 'Registration Keywords', 'manage_options', 'registration-limits', 'registration_limits_settings_page' );
+}
+add_action( 'admin_menu', 'register_limits_settings_menu' );
+
+// Define the layout and fields of the settings page
+function registration_limits_settings_page() {
+  ?&gt;
+  &lt;div&gt;
+    &lt;?php screen_icon(); ?&gt;
+    &lt;h2&gt;Registration Keywords Settings&lt;/h2&gt;
+    &lt;form method=&quot;post&quot; action=&quot;options.php&quot;&gt;
+      &lt;?php settings_fields( 'registration_limits_options' ); ?&gt;
+      &lt;?php do_settings_sections( 'registration_limits' ); ?&gt;
+      &lt;?php submit_button(); ?&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;?php
+}
+
+
+// Register the settings fields with WordPress
+function register_keywords_settings_fields() {
+    add_settings_section( 'registration_limits_section', '', '', 'registration_limits' );
+    add_settings_field( 'restricted_keywords', 'Restricted Keywords', 'restricted_keywords_callback', 'registration_limits', 'registration_limits_section' );
+    add_settings_field( 'ignore_3level_domain', 'Ignore 3-Level Domain Names', 'ignore_3level_domain_callback', 'registration_limits', 'registration_limits_section' );
+    register_setting( 'registration_limits_options', 'restricted_keywords', 'sanitize_text_field' );
+    register_setting( 'registration_limits_options', 'ignore_3level_domain', 'absint' );
+  }
+  add_action( 'admin_init', 'register_keywords_settings_fields' );
+  
+  // Define the callback to display the &quot;Restricted Keywords&quot; field on the settings page
+  function restricted_keywords_callback() {
+    $restricted_keywords = get_option( 'restricted_keywords', '' );
+    ?&gt;
+    &lt;input type=&quot;text&quot; id=&quot;restricted_keywords&quot; name=&quot;restricted_keywords&quot; value=&quot;&lt;?php echo esc_attr( $restricted_keywords ); ?&gt;&quot; /&gt;
+    &lt;p class=&quot;description&quot;&gt;Enter a comma separated list of keywords to restrict during registration.&lt;/p&gt;
+    &lt;?php
+  }
+
+// Define the callback to display the &quot;Ignore 3-Level Domain Names&quot; checkbox on the settings page
+function ignore_3level_domain_callback() {
+  $ignore_3level_domain = get_option( 'ignore_3level_domain', 0 );
+  ?&gt;
+  &lt;input type=&quot;checkbox&quot; id=&quot;ignore_3level_domain&quot; name=&quot;ignore_3level_domain&quot; value=&quot;1&quot; &lt;?php checked( $ignore_3level_domain, 1 ); ?&gt; /&gt;
+  &lt;label for=&quot;ignore_3level_domain&quot;&gt;Ignore registration if email address includes 3-level domain name.&lt;/label&gt;
+  &lt;?php
+}
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://why.yuyeye.cc/post-images/1678603271722.jpg" alt="" loading="lazy"></figure>
+<h3 id="限制用户注册">限制用户注册</h3>
+<p>只要满足以上2个条件的注册信息，都需要被屏蔽掉，我们需要采用 <code>woocommerce_registration_errors</code> 的 hook 进行限制。</p>
+<pre><code>
+// Validate the registration form and restrict based on keyword and 3-level domain name conditions
+function restricted_keyword_in_email($errors, $sanitized_user_login, $user_email)
+{
+    $ignore_3level_domain = get_option('ignore_3level_domain', 0);
+
+    // ignore 3-level domain name condition
+    if ($ignore_3level_domain == 1) {
+        $email_parts = explode(&quot;@&quot;, $user_email);
+        $domain_parts = explode(&quot;.&quot;, $email_parts[1]);
+        if (count($domain_parts) == 3) {
+            $errors-&gt;add('email_invalid', __('Invalid email address containing 3-level domain name.'));
+        }
+    }
+
+    // restrict keyword condition
+    $restricted_keywords = get_option('restricted_keywords', '');
+    $restricted_keywords_array = explode(',', $restricted_keywords);
+
+    foreach ($restricted_keywords_array as $restricted_keyword) {
+        $restricted_keyword = trim($restricted_keyword);
+        if (strpos($user_email, $restricted_keyword) !== false) { // check for presence of keyword
+            $errors-&gt;add('email_invalid', __('Invalid email address containing restricted keyword.')); // throw error
+        }
+    }
+    return $errors;
+}
+add_filter('woocommerce_registration_errors', 'restricted_keyword_in_email', 10, 3);
+</code></pre>
+<h2 id="拦截效果演示">拦截效果演示</h2>
+<ol>
+<li>
+<p>注册限制关键词<br>
+<img src="https://why.yuyeye.cc/post-images/1678603246600.jpg" alt="" loading="lazy"></p>
+</li>
+<li>
+<p>注册限制三级域名<br>
+<img src="https://why.yuyeye.cc/post-images/1678603262422.jpg" alt="" loading="lazy"></p>
+</li>
+</ol>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/add-history-order-timeline-on-woocommerce-order-detail-page/">
+              <h3 class="post-title">
+                在 WooCommerce 订单详情中添加历史订单时间线
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

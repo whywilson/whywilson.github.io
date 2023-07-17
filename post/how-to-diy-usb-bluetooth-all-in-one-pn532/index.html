@@ -1,0 +1,185 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何制作串口-蓝牙一体式PN532 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              如何制作串口-蓝牙一体式PN532
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-09-14 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/M1X4IrVHc/" class="post-tag">
+                  # diy
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/pn532/" class="post-tag">
+                  # PN532
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/MTools/" class="post-tag">
+                  # MTools
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>PN532作为史上最低成本RFID的硬件设备，是无法直接上电工作的，它需要在串口通信下传递数据，因此需要串口模块，那么所有串口通信的模块理论上都支持的，本文里接招制作一个带有USB串口和蓝牙串口的一体式PN532。</p>
+<!-- more -->
+<h1 id="设备清单">设备清单</h1>
+<ol>
+<li>PN532 模块</li>
+<li>USB to TTL 模块</li>
+<li>蓝牙串口 模块</li>
+<li>小容量锂电池</li>
+<li>USB充电模块</li>
+<li>小开关</li>
+<li>导线若干</li>
+</ol>
+<h1 id="连线图">连线图</h1>
+<figure data-type="image" tabindex="1"><img src="https://why.yuyeye.cc/post-images/1568433091524.jpg" alt="" loading="lazy"></figure>
+<h1 id="蓝牙串口模块">蓝牙串口模块</h1>
+<p>PN532工作在115200的波特率下，根据你购买的串口模块，通过USB串口模块连接蓝牙模块，</p>
+<pre><code>VCC -&gt; 3.3V
+GND -&gt; GND
+TXD -&gt; RXD
+RXD -&gt; TXD
+</code></pre>
+<p>使用AT命令更改波特率为115200，也可以根据实际情况更改模块名称，测试通信正常后，则可以按照连接图连接蓝牙模块。</p>
+<h1 id="usb-串口模块">USB 串口模块</h1>
+<p>由于PN532自带两对串口输入输出，因此只需要将USB串口与蓝牙串口模块分两侧连接即可，参照连线图连接即可。</p>
+<h1 id="电源与充电模块">电源与充电模块</h1>
+<p>为了方便，我将开关与电池串联后，接在PN532板上的两个独立孔洞上，然后连接VCC和GND，简直完美的方式</p>
+<h1 id="成品">成品</h1>
+<figure data-type="image" tabindex="2"><img src="https://why.yuyeye.cc/post-images/1568433076114.jpg" alt="" loading="lazy"></figure>
+<h1 id="工作方式">工作方式</h1>
+<ul>
+<li>连接电脑的PN532上位机</li>
+<li>手机OTG连接搭配MTools 或 Nfc-Tools 使用</li>
+<li>手机蓝牙连接搭配MTools 或 Nfc-Tools 使用</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-sort-year-arrange-with-python/">
+              <h3 class="post-title">
+                使用python处理年份范围的汇总
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2023年店小秘如何自动同步外贸自建站订单 | W!K!</title>
+<link rel="shortcut icon" href="https://why.yuyeye.cc/favicon.ico?v=1689566013911">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://why.yuyeye.cc/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZYVHXWJ0F4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ZYVHXWJ0F4');
+</script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://why.yuyeye.cc">
+  <img class="avatar" src="https://why.yuyeye.cc/images/avatar.png?v=1689566013911" alt="">
+  </a>
+  <h1 class="site-title">
+    W!K!
+  </h1>
+  <p class="site-description">
+    人在阳光下，怎能不阳光
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          Home
+        </a>
+      
+    
+      
+        <a href="https://why.yuyeye.cc/post/mtools-guide" class="menu">
+          MTools
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          Archive
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          Tags
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/whywilson/" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+        <a href="https://twitter.com/mtoolstec" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              2023年店小秘如何自动同步外贸自建站订单
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2023-02-26 ·
+              </time>
+              
+                <a href="https://why.yuyeye.cc/tag/YH58Sub5H/" class="post-tag">
+                  # 店小秘
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/QMb1UNE0KT/" class="post-tag">
+                  # Shopify
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/TEohhCvb6/" class="post-tag">
+                  # WooCommerce
+                </a>
+              
+                <a href="https://why.yuyeye.cc/tag/W-p_J3rh3C/" class="post-tag">
+                  # ERP
+                </a>
+              
+            </div>
+            
+            <div class="post-content">
+              <p>店小秘作为一款免费的 ERP，支持众多热门和小众的外贸自建站的对接，从而进行同步订单信息到 ERP 内进行处理，但是自建站，例如 WooCommerce, Magento 等站点或 Shopify 等站点无法自动推送订单信息到店小秘，可以使用店小秘的 <code>同步订单</code> 功能实现手动订单抓取。在本文中，可以实现<strong>自动定时同步</strong>订单信息到店小秘，无需人工值守来手动点击。</p>
+<!-- more -->
+<h2 id="实现思路">实现思路</h2>
+<ol>
+<li>获取店小秘手动同步订单的网络请求</li>
+<li>在服务器端实现自动定时同步订单</li>
+</ol>
+<h2 id="详细步骤">详细步骤</h2>
+<ol>
+<li>浏览器进入店小秘，订单 &gt; 订单处理 &gt; 待审核 页面，或直接点击下方链接进入。<br>
+<a href="https://www.dianxiaomi.com/order/index.htm" target="_blank">https://www.dianxiaomi.com/order/index.htm</a></li>
+<li>按 <code>F12</code> 键或使用 Windows 组合键 <code>Ctrl + Shift + i</code>，MacOS 组合键 <code>Cmd + Option + i</code> 开启网页的调试模式，进入 <code>网络</code> 窗口。<img src="https://why.yuyeye.cc/post-images/1677415513085.jpeg" alt="" loading="lazy"></li>
+<li>在筛选的输入框内输入 <code>syncOrder.json</code> 关键字，然后点击 <button type="button"  style="background-color: #f96; border: 1px solid #f96; color: #fff; padding: 6px 12px;border-radius: 4px;"  >同步订单</button>，在下方的请求内右键，复制 &gt; 复制为 Curl。<img src="https://why.yuyeye.cc/post-images/1677415680246.jpeg" alt="" loading="lazy"></li>
+<li>打开 Curl 转换工具网站 <a href="https://curlconverter.com/python/" target="_blank">https://curlconverter.com/python/</a></li>
+<li>在服务器端创建 Python 文件，此处用宝塔面板展示，进入 文件，在合适位置新建文件 <code>dianxiaomi-order-sync.py</code>，粘贴已复制的内容。<img src="https://why.yuyeye.cc/post-images/1677416526657.jpeg" alt="" loading="lazy"><br>
+在 Python 文件底部追加代码 <code> print(response.json())</code>，可以查看网络请求的返回值, 保存文件。</li>
+<li>进入宝塔面板 &gt; 计划任务 &gt; 添加计划任务 <img src="https://why.yuyeye.cc/post-images/1677417303778.jpeg" alt="" loading="lazy"><br>
+任务类型： Shell 脚本<br>
+任务名称：店小秘同步订单<br>
+执行周期：N 分钟，每 5 分钟 (最快是每1分钟执行一次，也可以根据需求，例如每天 8: 50 执行，保证 9:00 上班时已拉取最新订单信息)<br>
+脚本内容：<code>python3 /root/dianxiaomi-order-sync.py</code> (注意使用的 Python3 版本，文件路径为绝对路径)。</li>
+<li>执行命令，查看日志，可以看到返回数据 <code>{'code': 0, 'uuid': 'ORDER:SYNC_ODER_DATA:8348:557564'}</code>，说明订单已经成功自动同步，此时回到店小秘，即可以看到已同步所有订单，每执行一次命令就会记录一次日志。<img src="https://why.yuyeye.cc/post-images/1677417555883.jpeg" alt="" loading="lazy"></li>
+</ol>
+<h2 id="要点总结">要点总结</h2>
+<ol>
+<li>Python 文件请求店小秘同步订单的网络请求是使用的 Cookie 登录信息实现的，若您在网页端退出登录店小秘账号后，Python 代码将失效。</li>
+<li>服务器的 Python 版本建议为 Python3， Python文件的路径可以在任意位置。</li>
+<li>若您未使用宝塔面板的服务器管理程序，可以通过 crontab 的命令行配置实现定时任务。</li>
+</ol>
+<h2 id="机场推荐">机场推荐</h2>
+<p>目前使用了1年多的 <a href="https://speedcat-aff.com/auth/register?code=cWEN">SpeedCat</a>，搭配 ClashX for Windows 和 clashX Pro 在电脑端无阻使用，手机端使用 Clash 和 ShadowRoeckte，比较省心，推荐半年或一年付费，平均不到 ￥20/月，不是最便宜的，但是经过多个对比使用，稳定性很好，可以自动规则代理 ChatGPT。</p>
+
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://why.yuyeye.cc/post/how-to-efficiently-build-woocommerce-store/">
+              <h3 class="post-title">
+                WooCommerce 自建高效商城搭建方案
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  <div id="runner"></div>
+<script src="https://unpkg.com/t-rex-runner/dist/runner.js"></script>
+<script>initRunner('#runner');</script>
+<a href="https://github.com/whywilson/mtools" target="_blank">Witness the ❤️ Between Wilson & Karina </a>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8570996507960751"
+     crossorigin="anonymous"></script> | 
+  <a class="rss" href="https://why.yuyeye.cc/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
